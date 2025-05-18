@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bowling Čaňa &amp; Pizza | Moderný bowling, pizza a zábava v Čani</title>
+  <title>Bowling Čaňa & Pizza | Moderný bowling, pizza a zábava v Čani</title>
   <meta name="description" content="Bowling Čaňa – moderný bowling, výborná pizza, pivo, víno a zábava pre rodiny, partie aj firmy v Čani. Rezervuj si zážitok ešte dnes!">
   <meta name="keywords" content="bowling, pizza, Čaňa, rezervácia, rodina, pivo, akcie, zábava, reštaurácia">
   <meta name="author" content="Bowling Čaňa">
@@ -18,7 +18,7 @@
       --main-white: #fff;
       --main-grey: #666;
       --main-shadow: 0 6px 32px 0 #ea2a2a13, 0 1.5px 10px 0 #fd9c3a14;
-      --radius: 1.8em;
+      --radius: 1.7em;
       --font-main: 'Roboto', Arial, sans-serif;
       --cta-gradient: linear-gradient(90deg,#fd9c3a 10%, #ea2a2a 100%);
       --cta-gradient-alt: linear-gradient(90deg,#ea2a2a 0%,#fd9c3a 100%);
@@ -34,8 +34,6 @@
     *, *::before, *::after { box-sizing: border-box; }
     a { color: var(--main-orange); text-decoration: none; }
     a:hover, a:focus { text-decoration: underline; }
-
-    /* Header & Navigation */
     header {
       background: linear-gradient(90deg, var(--main-red) 70%, var(--main-orange) 100%);
       color: #fff;
@@ -43,12 +41,13 @@
       box-shadow: var(--main-shadow);
     }
     .nav-container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.7em 1em;
+      padding: 0.7em 1em 0.7em 1em;
+      flex-wrap: wrap;
     }
     .logo {
       font-size: 2em;
@@ -57,6 +56,31 @@
       color: #fff;
       text-shadow: 0 2px 8px #c6282820;
       user-select: none;
+    }
+    .header-contact {
+      font-size: 1em;
+      margin-top: 0.2em;
+      display: flex;
+      gap: 1.5em;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .header-contact span, .header-contact a {
+      color: #fffbe6;
+      font-size: 0.97em;
+      font-weight: 500;
+      text-decoration: none;
+      margin-right: 1em;
+    }
+    .header-contact .fa-facebook, .header-contact .fa-instagram {
+      font-size: 1.23em;
+      margin-right: 0.2em;
+      vertical-align: middle;
+      color: #fffbe6;
+      transition: color 0.14s;
+    }
+    .header-contact .fa-facebook:hover, .header-contact .fa-instagram:hover {
+      color: #fd9c3a;
     }
     nav ul {
       list-style: none;
@@ -89,9 +113,14 @@
       font-size: 2em;
       cursor: pointer;
     }
+    @media (max-width: 1050px) {
+      .header-contact { flex-direction: column; gap: 0.3em;}
+      .nav-container {gap:1.2em;}
+    }
     @media (max-width: 900px) {
-      .nav-container { flex-direction: column; align-items: flex-start; }
-      .logo { margin-bottom: 0.35em; }
+      .nav-container { flex-direction: column; align-items: flex-start; gap:0.7em;}
+      .logo { margin-bottom: 0.25em; }
+      .header-contact {margin-bottom: 0.5em;}
     }
     @media (max-width: 650px) {
       nav ul { display: none; flex-direction: column; gap: 10px; background: #fff; border-radius: 1em; position: absolute; top: 60px; right: 18px; box-shadow: 0 2px 24px #ea2a2a20; z-index: 200; padding: 16px 0;}
@@ -100,8 +129,6 @@
       .hamburger { display: block; position: absolute; right: 10px; top: 13px; }
       .nav-container { position: relative; }
     }
-
-    /* Hero */
     .hero {
       display: flex; flex-wrap:wrap;
       align-items: center; justify-content: space-between;
@@ -139,6 +166,7 @@
     }
     .hero-cta {
       display: flex; flex-wrap: wrap; gap: 1em; align-items: center;
+      margin-bottom: 0.8em;
     }
     .btn-cta {
       display: inline-block;
@@ -153,8 +181,7 @@
       cursor: pointer;
       letter-spacing: 0.02em;
       text-shadow: 0 2px 8px #ea2a2a33;
-      margin-bottom: 1.1em;
-      transition: background 0.18s, color 0.18s, transform 0.13s;
+      transition: background 0.18s, color 0.18s, transform 0.13s, box-shadow 0.18s;
       box-shadow: 0 2px 18px #ea2a2a10;
       min-height: 44px;
       min-width: 44px;
@@ -163,10 +190,8 @@
     .btn-cta:hover, .btn-cta:focus {
       background: linear-gradient(90deg,#ea2a2a 0%,#fd9c3a 80%);
       color: #fffbe6;
+      box-shadow: 0 6px 22px #ea2a2a1a;
       transform: scale(1.07) translateY(-2px);
-    }
-    .hero-img {
-      display: none; /* bez obrázka */
     }
     @media (max-width: 900px) {
       .hero {flex-direction:column;align-items:stretch;}
@@ -176,8 +201,6 @@
       .hero-title {font-size: 1.35em;}
       .hero-content {padding: 0.8em 0.1em;}
     }
-
-    /* O nás */
     .about-section {
       max-width: 900px;
       margin: 3em auto 2.5em auto;
@@ -236,8 +259,6 @@
       .about-text {font-size: 1em; padding: 0.2em 0.1em 0.2em 0.1em;}
       .about-text h3 { font-size: 1.05em;}
     }
-
-    /* Ponuka */
     .services { background: linear-gradient(120deg, #fff6f0 60%, #fff 100%);}
     .services .service-items {
       display: flex; flex-wrap: wrap; gap: 1.4em; margin-bottom: 1.1em; justify-content: center;
@@ -270,131 +291,204 @@
       outline: none;
     }
     .service-item h3 { color: var(--main-red); margin-bottom: 0.11em; font-size:1.13em;}
-
-    /* Menu */
     .menu-section { background: linear-gradient(120deg,#fff 80%,#fff6f0 100%); }
-    .menu-table {
-      width: 100%; border-collapse: collapse;
-      margin-bottom: 1.2em;
-      background: #fff; border-radius: var(--radius);
-      overflow: hidden;
-      font-size: 1.03em;
-      box-shadow: 0 1px 12px #ea2a2a10;
-      font-family: inherit;
-    }
-    .menu-table th, .menu-table td {
-      padding: 0.85em 0.6em;
-      border-bottom: 1px solid #ececec;
-    }
-    .menu-table th {
-      background: var(--main-orange);
-      color: #fff;
-      font-weight: 900;
-      letter-spacing: 0.02em;
-      font-size: 1.07em;
-    }
-    .menu-table tr:last-child td { border-bottom: none;}
-    .menu-table td { color: #2a1c1c;}
-    .menu-section h3 {
-      margin-top: 2em;
-      margin-bottom: 0.4em;
-      font-size: 1.15em;
+    .menu-tabs { display: flex; gap: 1em; margin-bottom: 2em; flex-wrap: wrap;}
+    .menu-tab-btn {
+      background: #fff;
       color: var(--main-red);
-      font-family: inherit;
-      font-weight: 800;
-      letter-spacing: 0.01em;
-    }
-
-    /* Rezervácia */
-    #rezervacia {
-      background: linear-gradient(120deg, #fff8f3 60%, #f8fbff 100%);
-      box-shadow: var(--main-shadow);
-      border-radius: var(--radius);
-      max-width: 600px;
-      margin: 2em auto 3em auto;
-      padding: 2em 1em;
-    }
-    #rezervacia h2 { color: var(--main-red); text-align: center; margin-bottom: 24px; }
-    #rezervacia form label { font-weight: 700; color: var(--main-red); margin-bottom: 4px; margin-top: 8px; display: block;}
-    #rezervacia form input, #rezervacia form textarea {
-      border: 1.5px solid var(--main-orange);
-      margin-bottom: 12px;
       border-radius: 2em;
-      background: #fff6f0;
-      font-size: 1em;
-      color: #181818;
-      padding: 12px 16px;
-      transition: border 0.18s;
-      width: 100%;
-      font-family: inherit;
-    }
-    #rezervacia form input:focus, #rezervacia form textarea:focus {
-      border: 1.7px solid var(--main-red);
+      border: 2px solid #fd9c3a;
+      padding: 0.5em 1.7em;
+      font-size: 1.09em;
+      font-weight: 700;
+      cursor: pointer;
+      margin-bottom: 0.3em;
+      transition: background 0.15s, color 0.15s, border 0.14s;
       outline: none;
     }
-    #rezervacia button[type="submit"] {
+    .menu-tab-btn.active, .menu-tab-btn:hover {
       background: var(--cta-gradient);
-      color:#fff;
-      border:none;
-      border-radius:2em;
-      padding:13px 0;
-      font-size:1.13em;
-      font-weight:800;
-      margin-top:6px;
-      cursor:pointer;
-      box-shadow:0 2px 12px #ea2a2a18;
-      transition:background 0.15s;
-      width: 100%;
+      color: #fff;
+      border: 2px solid var(--main-red);
     }
-    #rezervacia button[type="submit"]:hover {
-      background: var(--cta-gradient-alt);
+    .menu-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5em;
+      margin-bottom: 2.5em;
+      padding: 0;
+      list-style: none;
     }
-    #reservation-success {
-      margin-top: 18px;
-      text-align: center;
-      font-weight: 600;
-      min-height: 22px;
+    .menu-card {
+      background: #fff;
+      border-radius: 1.2em;
+      box-shadow: 0 2px 12px #ea2a2a18;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      min-height: 180px;
+      transition: box-shadow 0.18s, transform 0.16s;
+      border: 1.5px solid #fff3e6;
+      cursor: pointer;
+      position: relative;
     }
-    @media (max-width: 1024px) {
-      .hero-content {padding:1.2em 0.5em;}
-      section {max-width:96vw;}
+    .menu-card:active, .menu-card:focus {box-shadow: 0 8px 32px #ea2a2a21; border: 1.5px solid #fd9c3a66;}
+    .menu-card-content {
+      padding: 1em 1.2em 1.2em 1.2em;
+      flex: 1 1 auto;
+      display: flex; flex-direction: column;
+      justify-content: space-between;
     }
-    @media (max-width: 480px) {
-      form { padding: 10px;}
-      form input, form textarea, form button { font-size: 14px; padding: 10px;}
-      a, button { font-size: 14px; padding: 10px 14px;}
-      body { font-size: 12px; }
-    }
-
-    /* Kontakt */
-    #kontakt {
-      background: linear-gradient(120deg,#fff 80%,#f8fbff 100%);
-      box-shadow: 0 2px 18px #ea2a2a13;
-      border-radius: var(--radius);
-      max-width: 600px;
-      margin: 2em auto 3em auto;
-      padding: 2em 1em;
-    }
-    #kontakt h2 { color: var(--main-red); text-align: center; }
-    #kontakt a { color: var(--main-orange);}
-    #kontakt ul { margin: 0.7em 0 0.7em 0.5em; }
-    #kontakt iframe { border:0; border-radius:1em; width:100%; height:230px; margin-top:1em; }
-    #kontakt .contact-social {
-      text-align: left; margin-top: 1em;
-    }
-    #kontakt .contact-social a {
-      margin-right: 0.7em;
-      font-size: 1.4em;
+    .menu-card-title {
+      font-size: 1.13em;
+      font-weight: 700;
       color: var(--main-red);
+      margin-bottom: 0.4em;
+      margin-top: 0;
+      text-align: left;
+    }
+    .menu-card-desc {
+      color: #666;
+      font-size: 0.98em;
+      margin-bottom: 0.7em;
+      line-height: 1.5;
+      text-align: left;
+    }
+    .menu-card-price {
+      font-weight: 900;
+      color: var(--main-orange);
+      font-size: 1.15em;
+      margin-top: auto;
+      text-align: left;
+    }
+    .menu-card-add {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--cta-gradient);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      font-size: 1.2em;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 1px 8px #ea2a2a18;
+      cursor: pointer;
+      transition: background 0.13s, transform 0.12s;
+      z-index: 2;
+    }
+    .menu-card-add:active, .menu-card-add:focus { background: var(--cta-gradient-alt); transform: scale(1.12);}
+    @media (max-width: 550px) {
+      .menu-cards {grid-template-columns: 1fr;}
+      .menu-card {min-height: 120px;}
+    }
+    .cart {
+      position: fixed;
+      right: 32px;
+      bottom: 32px;
+      background: #fff;
+      border-radius: 1.4em;
+      box-shadow: 0 2px 24px #ea2a2a23;
+      width: 310px;
+      max-width: 95vw;
+      z-index: 300;
+      padding: 1.1em 1.2em 1.3em 1.2em;
+      display: none;
+      flex-direction: column;
+      gap: 0.6em;
+      border: 2px solid #fd9c3a33;
+      animation: fadeInCart 0.3s;
+    }
+    @keyframes fadeInCart { from { opacity:0; transform:translateY(30px);} to {opacity:1; transform:none;} }
+    .cart.open { display: flex;}
+    .cart-title {
+      font-size: 1.15em;
+      font-weight: 800;
+      color: var(--main-red);
+      margin-bottom: 0.6em;
+    }
+    .cart-list {
+      list-style: none;
+      margin: 0 0 1em 0;
+      padding: 0;
+      max-height: 180px;
+      overflow-y: auto;
+    }
+    .cart-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #f1e7e7;
+      padding: 0.3em 0;
+      font-size: 1em;
+    }
+    .cart-item-remove, .cart-item-plus, .cart-item-minus {
+      background: none;
+      border: none;
+      color: var(--main-red);
+      font-size: 1.2em;
+      cursor: pointer;
+      margin-left: 0.5em;
+      transition: color 0.16s;
       vertical-align: middle;
-      transition: color 0.15s;
     }
-    #kontakt .contact-social a:hover { color: var(--main-orange);}
-    @media (max-width: 600px) {
-      #kontakt {padding:1em 0.5em; border-radius:1em;}
+    .cart-item-plus, .cart-item-minus {font-size:1em; margin: 0 0.4em;}
+    .cart-item-remove:hover, .cart-item-plus:hover, .cart-item-minus:hover { color: var(--main-orange);}
+    .cart-total {
+      font-size: 1.13em;
+      font-weight: 800;
+      color: var(--main-orange);
+      text-align: right;
+      margin-bottom: 0.9em;
     }
-
-    /* Footer */
+    .cart-close {
+      position: absolute;
+      top: 13px; right: 18px;
+      background: none;
+      border: none;
+      color: #ea2a2a;
+      font-size: 1.3em;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .cart-toggle-btn {
+      position: fixed;
+      right: 28px; bottom: 28px;
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: var(--cta-gradient);
+      color: #fff;
+      border: none;
+      box-shadow: 0 4px 16px #ea2a2a26;
+      font-size: 2em;
+      cursor: pointer;
+      z-index: 350;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.14s, transform 0.12s;
+      outline: none;
+    }
+    .cart-toggle-btn:active, .cart-toggle-btn:focus { background: var(--cta-gradient-alt);}
+    .cart-badge {
+      background: var(--main-red);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 0.87em;
+      padding: 0 8px;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-weight: 700;
+      box-shadow: 0 1px 4px #ea2a2a24;
+      pointer-events: none;
+      min-width: 18px;
+      text-align: center;
+    }
+    @media (max-width: 700px) {
+      .cart, .cart-toggle-btn { right: 10px; bottom: 10px;}
+      .cart { padding: 0.7em 0.6em 1em 0.8em;}
+    }
     footer {
       background: var(--main-red);
       color: #fff;
@@ -425,6 +519,12 @@
   <header>
     <div class="nav-container">
       <div class="logo">Bowling Čaňa &amp; Pizza</div>
+      <div class="header-contact">
+        <span><i class="fas fa-clock"></i> Po–Št: 15–22h, Pi: 15–23h, So: 12–23h, Ne: 15–22h</span>
+        <span><i class="fas fa-phone-alt"></i> <a href="tel:+421915666066" style="color:#fffbe6;text-decoration:none;font-weight:700;">0915 666 066</a></span>
+        <a href="https://facebook.com/bowlingcana" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com/bowlingcana" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
       <nav>
         <button class="hamburger" aria-label="Zobraziť menu"><i class="fas fa-bars"></i></button>
         <ul>
@@ -445,14 +545,8 @@
         Moderné bowlingové dráhy, výborná pizza a priateľská atmosféra. Oslavy, turnaje, rodinné večery aj rozvoz pizze v Čani a okolí. Príďte si užiť zážitok na celý večer!
       </div>
       <div class="hero-cta">
-        <a href="#rezervacia" class="btn-cta">Rezervuj si dráhu</a>
+        <a href="#rezervacia" class="btn-cta">Rezervuj teraz</a>
         <a href="#menu" class="btn-cta alt">Objednaj pizzu</a>
-      </div>
-      <div style="margin-top:1em;">
-        <b>Otváracie hodiny:</b><br>
-        Po–Št: 15:00–22:00 &nbsp;|&nbsp; Pi: 15:00–23:00<br>
-        So: 12:00–23:00 &nbsp;|&nbsp; Ne: 15:00–22:00<br>
-        <b>Tel.:</b> <a href="tel:+421915666066" style="color:var(--main-orange);font-weight:700;">0915 666 066</a>
       </div>
     </div>
   </section>
@@ -465,16 +559,16 @@
         <p>
           Sme miesto, kde sa stretáva zábava, pohyb a dobré chute. Vytvorili sme Bowling Čaňa, aby ste si mohli užiť voľný čas s rodinou alebo priateľmi v príjemnej atmosfére.
         </p>
+        <h3>Naša história</h3>
+        <p>
+          Od roku 2019 sa snažíme prinášať do Čane moderný bowling a kvalitnú pizzu. Postupne sme sa stali obľúbeným miestom pre rodiny, partie aj firemné akcie.
+        </p>
         <h3>Čo ponúkame</h3>
         <p>
           Moderné bowlingové dráhy, výbornú pizzu z kvalitných surovín a vždy niečo na pitie. Organizujeme aj oslavy, turnaje a akcie na mieru.
         </p>
-        <h3>Prečo si vybrať nás</h3>
-        <p>
-          U nás sa každý cíti vítaný. Príďte si zahrať, ochutnať pizzu a zabaviť sa – radi vás privítame!
-        </p>
       </div>
-      <div class="about-image"><!-- obrázok odstránený --></div>
+      <div class="about-image"></div>
     </div>
   </section>
 
@@ -489,203 +583,29 @@
   </section>
 
   <section id="menu" class="menu-section">
-    <h2>Pizza menu</h2>
-    <table class="menu-table">
-      <thead>
-        <tr>
-          <th>Názov</th>
-          <th>Zloženie</th>
-          <th>Cena</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Gazdovská</td>
-          <td>paradajková omáčka, syr, slanina, cibuľa, šampiňóny, saláma, klobása</td>
-          <td>7.10 €</td>
-        </tr>
-        <tr>
-          <td>Študentská</td>
-          <td>paradajková omáčka, syr, šunka, kukurica</td>
-          <td>6.50 €</td>
-        </tr>
-        <tr>
-          <td>Capri</td>
-          <td>paradajková omáčka, syr, šunka, šampiňóny, kukurica</td>
-          <td>6.80 €</td>
-        </tr>
-        <tr>
-          <td>Pikantná</td>
-          <td>paradajková omáčka, syr, saláma, feferóny, cibuľa, niva</td>
-          <td>6.80 €</td>
-        </tr>
-        <tr>
-          <td>Čaňanská</td>
-          <td>paradajková omáčka, syr, šunka, slanina, vajce, kukurica</td>
-          <td>7.10 €</td>
-        </tr>
-        <tr>
-          <td>Quatro stagione</td>
-          <td>paradajková omáčka, syr, šunka, šampiňóny, olivy, kukurica</td>
-          <td>7.10 €</td>
-        </tr>
-        <tr>
-          <td>Hawai</td>
-          <td>paradajková omáčka, syr, šunka, ananás</td>
-          <td>6.60 €</td>
-        </tr>
-        <tr>
-          <td>Quatro formaggi</td>
-          <td>paradajková omáčka, syr, štyri druhy syra</td>
-          <td>6.80 €</td>
-        </tr>
-        <tr>
-          <td>Kuracia</td>
-          <td>paradajková omáčka, syr, kuracie mäso, kukurica, šampiňóny</td>
-          <td>6.80 €</td>
-        </tr>
-        <tr>
-          <td>Salámová</td>
-          <td>paradajková omáčka, syr, saláma</td>
-          <td>6.60 €</td>
-        </tr>
-        <tr>
-          <td>Smotanová kuracia</td>
-          <td>smotana, syr, niva, kuracie mäso</td>
-          <td>6.80 €</td>
-        </tr>
-        <tr>
-          <td>Šunková</td>
-          <td>paradajková omáčka, syr, šunka</td>
-          <td>6.30 €</td>
-        </tr>
-        <tr>
-          <td>Brokolicová</td>
-          <td>syr, smotana, niva, šunka, brokolica</td>
-          <td>6.80 €</td>
-        </tr>
-        <tr>
-          <td>Margherita</td>
-          <td>paradajková omáčka, syr</td>
-          <td>5.50 €</td>
-        </tr>
-        <tr>
-          <td>Tuniaková</td>
-          <td>paradajková omáčka, syr, tuniak, cibuľa</td>
-          <td>6.80 €</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>Nápoje</h3>
-    <table class="menu-table">
-      <thead>
-        <tr>
-          <th>Názov</th>
-          <th>Cena</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Pepsi 1,5l (plus záloha za obal)</td><td>2.00 €</td></tr>
-        <tr><td>Coca-Cola Zero 1,5l (plus záloha za obal)</td><td>2.00 €</td></tr>
-        <tr><td>Energy Drink Pilot 0,25l (plus záloha za obal)</td><td>1.30 €</td></tr>
-        <tr><td>Kofola originál 1,5 l - čapovaná (plus záloha za obal)</td><td>4.50 €</td></tr>
-        <tr><td>Pepsi-Cola plechovka 0,33l (plus záloha za obal)</td><td>1.30 €</td></tr>
-        <tr><td>Džús krabičkový 0,25l</td><td>0.80 €</td></tr>
-        <tr><td>Red Bull 0,25l (plus záloha za obal)</td><td>2.15 €</td></tr>
-        <tr><td>Minerálka 0,5l (plus záloha za obal)</td><td>1.15 €</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Pivo</h3>
-    <table class="menu-table">
-      <thead>
-        <tr>
-          <th>Názov</th>
-          <th>Cena</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Staropramen 0,5l plech (plus záloha za obal)</td><td>1.25 €</td></tr>
-        <tr><td>Pilsner Urquell 0,5 l - fľašový (plus záloha za obal)</td><td>1.65 €</td></tr>
-        <tr><td>Staropramen 10° čapovaný 1,5l (plus záloha za obal)</td><td>4.05 €</td></tr>
-        <tr><td>Steiger radler (tmavý, svetlý) (plus záloha za obal)</td><td>1.25 €</td></tr>
-        <tr><td>Staropramen 12° nefilter čapovaný 1,5l (plus záloha za obal)</td><td>4.65 €</td></tr>
-        <tr><td>Pilsner Urquell čapovaný 1,5l (plus záloha za obal)</td><td>5.55 €</td></tr>
-        <tr><td>Pilsner Urquell 0,5l plech (plus záloha za obal)</td><td>1.95 €</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Vína</h3>
-    <table class="menu-table">
-      <thead>
-        <tr>
-          <th>Názov</th>
-          <th>Cena</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Matyšák Frankovka Modrá - červené 1,0l</td><td>7.00 €</td></tr>
-        <tr><td>Matyšák Rizling Vlašský - biele 1,0l</td><td>7.00 €</td></tr>
-        <tr><td>Hubert DeLuxe šampanské 0,75l</td><td>8.00 €</td></tr>
-        <tr><td>Movino - biele 0,75l</td><td>8.00 €</td></tr>
-        <tr><td>Movino - červené 0,75l</td><td>8.00 €</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Pochutiny</h3>
-    <table class="menu-table">
-      <thead>
-        <tr>
-          <th>Názov</th>
-          <th>Cena</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Horalka 45g</td><td>0.70 €</td></tr>
-        <tr><td>Mila 45g</td><td>0.80 €</td></tr>
-        <tr><td>Lay´s chips 0,65g</td><td>1.40 €</td></tr>
-        <tr><td>Mentos 38g</td><td>0.80 €</td></tr>
-        <tr><td>Tyčinky DRU 45g</td><td>0.60 €</td></tr>
-        <tr><td>Arašidy 100g</td><td>0.80 €</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Alkoholické nápoje</h3>
-    <table class="menu-table">
-      <thead>
-        <tr>
-          <th>Názov</th>
-          <th>Cena</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Vodka Jemná 0,5l</td><td>9.00 €</td></tr>
-        <tr><td>Captain Morgan Sp. 0,7l</td><td>18.00 €</td></tr>
-        <tr><td>Vodka Nicolaus 0,7l</td><td>13.00 €</td></tr>
-        <tr><td>Captain Morgan Sp. 1l</td><td>22.00 €</td></tr>
-        <tr><td>Metaxa 5* 0,7l</td><td>17.00 €</td></tr>
-        <tr><td>R tuzemský 0,5l</td><td>9.00 €</td></tr>
-        <tr><td>Spišská Borovička 0,7l</td><td>13.00 €</td></tr>
-        <tr><td>Slovenská Borovička 0,5l</td><td>9.00 €</td></tr>
-        <tr><td>Vodka Jemná 1l</td><td>14.00 €</td></tr>
-        <tr><td>R tuzemský 1l</td><td>14.00 €</td></tr>
-        <tr><td>Jägermeister 0,7l</td><td>18.00 €</td></tr>
-        <tr><td>Jägermeister 1l</td><td>22.00 €</td></tr>
-        <tr><td>Becherovka 0,7l</td><td>18.00 €</td></tr>
-        <tr><td>Slovenská Borovička 1l</td><td>14.00 €</td></tr>
-        <tr><td>Vodka Finlandia 1l</td><td>22.00 €</td></tr>
-        <tr><td>Kopaničiarska Slivovica 1l</td><td>14.00 €</td></tr>
-        <tr><td>Kopaničiarska Hruška 1l</td><td>14.00 €</td></tr>
-        <tr><td>Fernet Stock 1l</td><td>18.00 €</td></tr>
-        <tr><td>Fernet Stock Citrus 1l</td><td>18.00 €</td></tr>
-        <tr><td>Jameson 0,7l</td><td>21.00 €</td></tr>
-        <tr><td>Jameson 1l</td><td>27.00 €</td></tr>
-        <tr><td>Vodka Nicolaus 1l</td><td>17.00 €</td></tr>
-        <tr><td>Jack Daniel´s 0,5l</td><td>20.00 €</td></tr>
-      </tbody>
-    </table>
+    <h2>Menu</h2>
+    <div class="menu-tabs">
+      <button class="menu-tab-btn active" data-tab="pizza">Pizza</button>
+      <button class="menu-tab-btn" data-tab="napoje">Nápoje</button>
+      <button class="menu-tab-btn" data-tab="pivo">Pivo</button>
+      <button class="menu-tab-btn" data-tab="vina">Víno</button>
+      <button class="menu-tab-btn" data-tab="pochutiny">Pochutiny</button>
+      <button class="menu-tab-btn" data-tab="alkohol">Alkoholické nápoje</button>
+    </div>
+    <ul class="menu-cards" id="menu-cards"></ul>
   </section>
+
+  <!-- Košík -->
+  <button class="cart-toggle-btn" id="cart-toggle-btn" aria-label="Zobraziť košík">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="cart-badge" id="cart-badge">0</span>
+  </button>
+  <div class="cart" id="cart">
+    <button class="cart-close" id="cart-close" aria-label="Zavrieť košík">&times;</button>
+    <div class="cart-title">Váš košík</div>
+    <ul class="cart-list" id="cart-list"></ul>
+    <div class="cart-total" id="cart-total"></div>
+  </div>
 
   <section id="rezervacia">
     <h2>Rezervácia / Objednávka</h2>
@@ -694,7 +614,7 @@
       <input type="text" id="name" name="name" placeholder="Vaše meno" required />
 
       <label for="phone">Telefón*</label>
-      <input type="tel" id="phone" name="phone" placeholder="0901 234 567" required />
+      <input type="tel" id="phone" name="phone" placeholder="0901 234 567" required pattern="^(?:\+?421|0)\s?\d{3}\s?\d{3}\s?\d{3}$" />
 
       <label for="email">Email (voliteľné)</label>
       <input type="email" id="email" name="email" placeholder="vas@email.sk" />
@@ -764,14 +684,13 @@
     </div>
   </footer>
   <script>
-    // Hamburger menu
+    // Hamburger menu, smooth scroll, aktívna sekcia, formulár
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('nav ul');
     hamburger.addEventListener('click', () => {
       navMenu.classList.toggle('show');
     });
 
-    // Smooth scroll + active section highlighting
     const navLinks = document.querySelectorAll('nav ul li a');
     window.addEventListener('scroll', () => {
       let fromTop = window.scrollY + 100;
@@ -783,7 +702,6 @@
         }
       });
     });
-    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         const target = document.querySelector(this.getAttribute('href'));
@@ -798,23 +716,193 @@
     const form = document.getElementById('reservationForm');
     const successDiv = document.getElementById('reservation-success');
     if(form) {
-      form.addEventListener('submit', async function(e) {
+      form.addEventListener('submit', function(e) {
         e.preventDefault();
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
         successDiv.style.color = '#ea2a2a';
         successDiv.innerHTML = "Odosielam rezerváciu...";
-        const data = Object.fromEntries(new FormData(form).entries());
-        try {
-          setTimeout(() => {
-            successDiv.style.color = 'green';
-            successDiv.innerHTML = 'Vaša rezervácia bola úspešne odoslaná!';
-            form.reset();
-          }, 1100);
-        } catch (err) {
-          successDiv.style.color = 'red';
-          successDiv.innerHTML = 'Chyba siete. Skúste znova neskôr.';
-        }
+        setTimeout(() => {
+          successDiv.style.color = 'green';
+          successDiv.innerHTML = 'Rezervácia bola úspešne odoslaná!';
+          form.reset();
+        }, 1100);
       });
     }
+
+    // --- Menu data a košík ---
+    const menuData = {
+      pizza: [
+        { name: "Gazdovská", desc: "paradajková omáčka, syr, slanina, cibuľa, šampiňóny, saláma, klobása", price: 7.10 },
+        { name: "Študentská", desc: "paradajková omáčka, syr, šunka, kukurica", price: 6.50 },
+        { name: "Capri", desc: "paradajková omáčka, syr, šunka, šampiňóny, kukurica", price: 6.80 },
+        { name: "Pikantná", desc: "paradajková omáčka, syr, saláma, feferóny, cibuľa, niva", price: 6.80 },
+        { name: "Čaňanská", desc: "paradajková omáčka, syr, šunka, slanina, vajce, kukurica", price: 7.10 },
+        { name: "Quatro stagione", desc: "paradajková omáčka, syr, šunka, šampiňóny, olivy, kukurica", price: 7.10 }
+      ],
+      napoje: [
+        { name: "Pepsi 1,5l", desc: "(plus záloha za obal)", price: 2.00 },
+        { name: "Coca-Cola Zero 1,5l", desc: "(plus záloha za obal)", price: 2.00 },
+        { name: "Energy Drink Pilot 0,25l", desc: "(plus záloha za obal)", price: 1.30 },
+        { name: "Kofola originál 1,5 l - čapovaná", desc: "(plus záloha za obal)", price: 4.50 },
+        { name: "Pepsi-Cola plechovka 0,33l", desc: "(plus záloha za obal)", price: 1.30 },
+        { name: "Džús krabičkový 0,25l", desc: "", price: 0.80 },
+        { name: "Red Bull 0,25l", desc: "(plus záloha za obal)", price: 2.15 },
+        { name: "Minerálka 0,5l", desc: "(plus záloha za obal)", price: 1.15 }
+      ],
+      pivo: [
+        { name: "Staropramen 0,5l plech", desc: "(plus záloha za obal)", price: 1.25 },
+        { name: "Pilsner Urquell 0,5 l - fľašový", desc: "(plus záloha za obal)", price: 1.65 },
+        { name: "Staropramen 10° čapovaný 1,5l", desc: "(plus záloha za obal)", price: 4.05 },
+        { name: "Steiger radler (tmavý, svetlý)", desc: "(plus záloha za obal)", price: 1.25 },
+        { name: "Staropramen 12° nefilter čapovaný 1,5l", desc: "(plus záloha za obal)", price: 4.65 },
+        { name: "Pilsner Urquell čapovaný 1,5l", desc: "(plus záloha za obal)", price: 5.55 },
+        { name: "Pilsner Urquell 0,5l plech", desc: "(plus záloha za obal)", price: 1.95 }
+      ],
+      vina: [
+        { name: "Matyšák Frankovka Modrá - červené 1,0l", desc: "", price: 7.00 },
+        { name: "Matyšák Rizling Vlašský - biele 1,0l", desc: "", price: 7.00 },
+        { name: "Hubert DeLuxe šampanské 0,75l", desc: "", price: 8.00 },
+        { name: "Movino - biele 0,75l", desc: "", price: 8.00 },
+        { name: "Movino - červené 0,75l", desc: "", price: 8.00 }
+      ],
+      pochutiny: [
+        { name: "Horalka 45g", desc: "", price: 0.70 },
+        { name: "Mila 45g", desc: "", price: 0.80 },
+        { name: "Lay´s chips 0,65g", desc: "", price: 1.40 },
+        { name: "Mentos 38g", desc: "", price: 0.80 },
+        { name: "Tyčinky DRU 45g", desc: "", price: 0.60 },
+        { name: "Arašidy 100g", desc: "", price: 0.80 }
+      ],
+      alkohol: [
+        { name: "Vodka Jemná 0,5l", desc: "", price: 9.00 },
+        { name: "Captain Morgan Sp. 0,7l", desc: "", price: 18.00 },
+        { name: "Vodka Nicolaus 0,7l", desc: "", price: 13.00 },
+        { name: "Captain Morgan Sp. 1l", desc: "", price: 22.00 },
+        { name: "Metaxa 5* 0,7l", desc: "", price: 17.00 },
+        { name: "R tuzemský 0,5l", desc: "", price: 9.00 }
+      ]
+    };
+
+    const menuCards = document.getElementById('menu-cards');
+    const menuTabs = document.querySelectorAll('.menu-tab-btn');
+    let selectedTab = 'pizza';
+
+    function renderMenu(tab) {
+      menuCards.innerHTML = '';
+      menuData[tab].forEach((item, idx) => {
+        const li = document.createElement('li');
+        li.className = 'menu-card';
+        li.tabIndex = 0;
+        li.innerHTML = `
+          <button class="menu-card-add" title="Pridať do košíka" aria-label="Pridať do košíka" data-tab="${tab}" data-idx="${idx}"><i class="fas fa-plus"></i></button>
+          <div class="menu-card-content">
+            <div>
+              <h3 class="menu-card-title">${item.name}</h3>
+              <div class="menu-card-desc">${item.desc || ''}</div>
+            </div>
+            <div class="menu-card-price">${item.price.toFixed(2)} €</div>
+          </div>
+        `;
+        menuCards.appendChild(li);
+      });
+    }
+
+    menuTabs.forEach(tabBtn => {
+      tabBtn.onclick = () => {
+        menuTabs.forEach(b => b.classList.remove('active'));
+        tabBtn.classList.add('active');
+        selectedTab = tabBtn.getAttribute('data-tab');
+        renderMenu(selectedTab);
+      }
+    });
+
+    renderMenu(selectedTab);
+
+    // Košík
+    let cart = [];
+    const cartBtn = document.getElementById('cart-toggle-btn');
+    const cartBadge = document.getElementById('cart-badge');
+    const cartDiv = document.getElementById('cart');
+    const cartList = document.getElementById('cart-list');
+    const cartTotal = document.getElementById('cart-total');
+    const cartClose = document.getElementById('cart-close');
+
+    function updateCartBadge() {
+      let sum = cart.reduce((acc, item) => acc + item.qty, 0);
+      cartBadge.textContent = sum;
+      cartBtn.setAttribute('aria-label', `Zobraziť košík (${sum})`);
+    }
+    function updateCart() {
+      cartList.innerHTML = "";
+      if(cart.length === 0) {
+        cartList.innerHTML = "<li style='color:#888;font-size:0.97em'>Košík je prázdny.</li>";
+        cartTotal.textContent = "";
+      } else {
+        cart.forEach((item, idx) => {
+          const li = document.createElement('li');
+          li.innerHTML = `
+            <span>
+              <button class="cart-item-minus" title="Menej" aria-label="Menej" data-idx="${idx}"><i class="fas fa-minus"></i></button>
+              ${item.name} <b>x${item.qty}</b>
+              <button class="cart-item-plus" title="Viac" aria-label="Viac" data-idx="${idx}"><i class="fas fa-plus"></i></button>
+            </span>
+            <span>
+              ${(item.price * item.qty).toFixed(2)} €
+              <button class="cart-item-remove" title="Odstrániť" aria-label="Odstrániť položku" data-idx="${idx}"><i class="fas fa-trash"></i></button>
+            </span>`;
+          cartList.appendChild(li);
+        });
+        cartTotal.textContent = `Celkom: ${cart.reduce((acc,i)=>acc+i.price*i.qty,0).toFixed(2)} €`;
+      }
+      updateCartBadge();
+    }
+    menuCards.addEventListener('click', function(e) {
+      const btn = e.target.closest('.menu-card-add');
+      if(btn) {
+        const tab = btn.getAttribute('data-tab');
+        const idx = +btn.getAttribute('data-idx');
+        const item = menuData[tab][idx];
+        addToCart(item);
+        cartBtn.classList.add('active');
+        setTimeout(()=>cartBtn.classList.remove('active'),250);
+      }
+    });
+    function addToCart(item) {
+      const found = cart.find(it => it.name === item.name);
+      if(found) found.qty += 1;
+      else cart.push({name: item.name, price: item.price, qty: 1});
+      updateCart();
+    }
+    cartBtn.onclick = () => { cartDiv.classList.toggle('open'); }
+    cartClose.onclick = () => { cartDiv.classList.remove('open'); }
+    cartList.addEventListener('click', function(e) {
+      if (e.target.closest('.cart-item-remove')) {
+        const idx = +e.target.closest('.cart-item-remove').getAttribute('data-idx');
+        cart.splice(idx,1);
+        updateCart();
+      }
+      if (e.target.closest('.cart-item-plus')) {
+        const idx = +e.target.closest('.cart-item-plus').getAttribute('data-idx');
+        cart[idx].qty += 1;
+        updateCart();
+      }
+      if (e.target.closest('.cart-item-minus')) {
+        const idx = +e.target.closest('.cart-item-minus').getAttribute('data-idx');
+        if(cart[idx].qty > 1) cart[idx].qty -= 1;
+        else cart.splice(idx,1);
+        updateCart();
+      }
+    });
+    updateCart();
+    menuCards.addEventListener('click', function(e) {
+      if(window.innerWidth < 700) {
+        const btn = e.target.closest('.menu-card-add');
+        if(btn) cartDiv.classList.add('open');
+      }
+    });
   </script>
 </body>
 </html>
