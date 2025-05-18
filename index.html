@@ -4,28 +4,43 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bowling Čaňa &amp; Pizza | Moderný bowling, pizza a zábava v Čani</title>
-  <meta name="description" content="Bowling Čaňa - moderný bowling, výborná pizza, pivo, víno a zábava pre rodiny, partie aj firmy. Rezervuj si zážitok ešte dnes!">
+  <meta name="description" content="Bowling Čaňa – moderný bowling, výborná pizza, pivo, víno a zábava pre rodiny, partie aj firmy v Čani. Rezervuj si zážitok ešte dnes!">
   <meta name="keywords" content="bowling, pizza, Čaňa, rezervácia, rodina, pivo, akcie, zábava, reštaurácia">
   <meta name="author" content="Bowling Čaňa">
   <link rel="icon" href="https://cdn.pixabay.com/photo/2013/07/13/12/37/bowling-146862_1280.png">
   <link href="https://fonts.googleapis.com/css?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    :root {
+      --main-red: #ea2a2a;
+      --main-orange: #fd9c3a;
+      --main-bg: #f8f7f5;
+      --main-white: #fff;
+      --main-grey: #666;
+      --main-shadow: 0 6px 32px 0 #ea2a2a13, 0 1.5px 10px 0 #fd9c3a14;
+      --radius: 1.8em;
+      --font-main: 'Roboto', Arial, sans-serif;
+      --cta-gradient: linear-gradient(90deg,#fd9c3a 10%, #ea2a2a 100%);
+      --cta-gradient-alt: linear-gradient(90deg,#ea2a2a 0%,#fd9c3a 100%);
+    }
     html, body {
       margin: 0; padding: 0;
-      font-family: 'Roboto', Arial, sans-serif;
-      background: #fff6f0;
+      font-family: var(--font-main);
+      background: var(--main-bg);
       color: #2a1c1c;
       font-size: 1.1rem;
       scroll-behavior: smooth;
     }
-    a { color: #e65100; text-decoration: none; }
+    *, *::before, *::after { box-sizing: border-box; }
+    a { color: var(--main-orange); text-decoration: none; }
     a:hover, a:focus { text-decoration: underline; }
+
+    /* Header & Navigation */
     header {
-      background: linear-gradient(90deg, #ea2a2a 70%, #fd9c3a 100%);
+      background: linear-gradient(90deg, var(--main-red) 70%, var(--main-orange) 100%);
       color: #fff;
       position: sticky; top:0; z-index: 100;
-      box-shadow: 0 2px 18px #ea2a2a30;
+      box-shadow: var(--main-shadow);
     }
     .nav-container {
       max-width: 1100px;
@@ -41,6 +56,7 @@
       letter-spacing: 0.03em;
       color: #fff;
       text-shadow: 0 2px 8px #c6282820;
+      user-select: none;
     }
     nav ul {
       list-style: none;
@@ -58,10 +74,12 @@
       transition: background 0.12s, color 0.12s;
       position: relative;
       display: block;
+      outline: none;
     }
     nav ul li a.active, nav ul li a:hover, nav ul li a:focus {
       background: #fff;
-      color: #ea2a2a;
+      color: var(--main-red);
+      text-decoration: underline;
     }
     .hamburger {
       display: none;
@@ -78,34 +96,36 @@
     @media (max-width: 650px) {
       nav ul { display: none; flex-direction: column; gap: 10px; background: #fff; border-radius: 1em; position: absolute; top: 60px; right: 18px; box-shadow: 0 2px 24px #ea2a2a20; z-index: 200; padding: 16px 0;}
       nav ul.show { display: flex; }
-      nav ul li a { color: #ea2a2a; font-size: 1.1em; background: none; }
+      nav ul li a { color: var(--main-red); font-size: 1.1em; background: none; }
       .hamburger { display: block; position: absolute; right: 10px; top: 13px; }
       .nav-container { position: relative; }
     }
 
+    /* Hero */
     .hero {
       display: flex; flex-wrap:wrap;
       align-items: center; justify-content: space-between;
-      background: linear-gradient(90deg,#fff 55%,#ffe3d0 100%);
-      border-radius: 0 0 2em 2em;
-      margin-bottom: 2em;
-      box-shadow: 0 2px 18px #ea2a2a13;
+      background: linear-gradient(90deg,#fff 60%,#ffe3d0 100%);
+      border-radius: 0 0 var(--radius) var(--radius);
+      margin-bottom: 2.5em;
+      box-shadow: var(--main-shadow);
       max-width: 1100px; margin-left:auto; margin-right:auto;
       min-height: 220px;
       overflow: hidden;
       position: relative;
     }
     .hero-content {
-      flex: 1 1 330px;
+      flex: 1 1 400px;
       padding: 2.3em 1.2em 2em 2.1em;
       z-index: 2;
       text-align: left;
+      max-width: 600px;
     }
     .hero-title {
-      font-size: 2.3em;
-      color: #ea2a2a;
+      font-size: 2.2em;
+      color: var(--main-red);
       font-weight: 900;
-      margin-bottom: 0.12em;
+      margin-bottom: 0.22em;
       letter-spacing: 0.01em;
       line-height: 1.07;
     }
@@ -117,10 +137,13 @@
       line-height: 1.5;
       max-width: 510px;
     }
+    .hero-cta {
+      display: flex; flex-wrap: wrap; gap: 1em; align-items: center;
+    }
     .btn-cta {
       display: inline-block;
       font-family: inherit;
-      background: linear-gradient(90deg,#fd9c3a 20%, #ea2a2a 100%);
+      background: var(--cta-gradient);
       color: #fff;
       border: none;
       border-radius: 2em;
@@ -130,17 +153,20 @@
       cursor: pointer;
       letter-spacing: 0.02em;
       text-shadow: 0 2px 8px #ea2a2a33;
-      margin-right: 0.7em;
       margin-bottom: 1.1em;
       transition: background 0.18s, color 0.18s, transform 0.13s;
       box-shadow: 0 2px 18px #ea2a2a10;
       min-height: 44px;
       min-width: 44px;
     }
+    .btn-cta.alt { background: var(--cta-gradient-alt);}
     .btn-cta:hover, .btn-cta:focus {
       background: linear-gradient(90deg,#ea2a2a 0%,#fd9c3a 80%);
       color: #fffbe6;
       transform: scale(1.07) translateY(-2px);
+    }
+    .hero-img {
+      display: none; /* bez obrázka */
     }
     @media (max-width: 900px) {
       .hero {flex-direction:column;align-items:stretch;}
@@ -151,22 +177,22 @@
       .hero-content {padding: 0.8em 0.1em;}
     }
 
+    /* O nás */
     .about-section {
       max-width: 900px;
       margin: 3em auto 2.5em auto;
       padding: 2.5em 2em;
-      border-radius: 2em;
+      border-radius: var(--radius);
       background: linear-gradient(120deg, #fff8f3 70%, #f8fbff 100%);
-      box-shadow: 0 6px 32px 0 #ea2a2a13, 0 1.5px 10px 0 #ffd60024;
+      box-shadow: var(--main-shadow);
     }
     .about-title {
       text-align: center;
-      font-size: 2.4em;
+      font-size: 2.1em;
       font-weight: 900;
-      letter-spacing: 0.03em;
       margin-bottom: 1.4em;
-      color: #ea2a2a;
-      font-family: 'Roboto', Arial, sans-serif;
+      color: var(--main-red);
+      font-family: var(--font-main);
     }
     .about-container {
       display: flex;
@@ -179,7 +205,7 @@
       flex: 1 1 340px;
       min-width: 270px;
       max-width: 100%;
-      font-family: 'Roboto', Arial, sans-serif;
+      font-family: var(--font-main);
       font-size: 1.13em;
       color: #181818;
       line-height: 1.7;
@@ -190,43 +216,28 @@
     .about-text h3 {
       margin-top: 0.9em;
       margin-bottom: 0.3em;
-      font-size: 1.23em;
-      font-weight: 800;
-      color: #fd9c3a;
+      font-size: 1.15em;
+      font-weight: 700;
+      color: var(--main-orange);
       font-family: inherit;
-      letter-spacing: 0.01em;
     }
     .about-text p {
-      margin-bottom: 0.6em;
+      margin-bottom: 0.7em;
       margin-top: 0;
       padding-left: 0.1em;
     }
-    .about-image {
-      display: none;
-    }
+    .about-image {display: none;}
     @media (max-width: 800px) {
-      .about-container {
-        flex-direction: column;
-        gap: 1.7em;
-        align-items: stretch;
-      }
+      .about-container { flex-direction: column; gap: 1.7em; align-items: stretch;}
     }
     @media (max-width: 600px) {
-      .about-section {
-        padding: 1em 0.5em;
-        border-radius: 1em;
-      }
-      .about-title {
-        font-size: 1.7em;
-        margin-bottom: 1em;
-      }
-      .about-text {
-        font-size: 1em;
-        padding: 0.2em 0.1em 0.2em 0.1em;
-      }
-      .about-text h3 { font-size: 1.09em;}
+      .about-section {padding: 1em 0.5em; border-radius: 1em;}
+      .about-title {font-size: 1.5em; margin-bottom: 1em;}
+      .about-text {font-size: 1em; padding: 0.2em 0.1em 0.2em 0.1em;}
+      .about-text h3 { font-size: 1.05em;}
     }
 
+    /* Ponuka */
     .services { background: linear-gradient(120deg, #fff6f0 60%, #fff 100%);}
     .services .service-items {
       display: flex; flex-wrap: wrap; gap: 1.4em; margin-bottom: 1.1em; justify-content: center;
@@ -234,34 +245,38 @@
     .service-item {
       flex: 1 1 170px; max-width: 250px;
       background: linear-gradient(120deg,#fff,#fff3e6 90%);
-      border-radius: 2em;
+      border-radius: var(--radius);
       box-shadow: 0 2px 12px 0 #ea2a2a15;
-      padding: 1.5em 0.7em 1.2em 0.7em;
+      padding: 1.2em 0.7em 1.2em 0.7em;
       text-align: center;
       transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s, background 0.16s;
-      opacity: 1; border-bottom: 6px solid #fd9c3a;
+      opacity: 1; border-bottom: 6px solid var(--main-orange);
       cursor: pointer;
       margin-bottom: 0.6em;
       font-family: inherit;
+      font-size: 1em;
     }
     .service-item .icon {
       font-size: 2.2em; margin-bottom: 0.38em; display: block;
       filter: drop-shadow(0 4px 12px #ffd60070);
+      transition: transform 0.2s;
     }
+    .service-item:hover .icon { transform: scale(1.16) rotate(-9deg);}
     .service-item:hover, .service-item:focus {
       transform: scale(1.07) translateY(-5px) rotate(-1deg);
       background: linear-gradient(100deg,#fffbe6 50%,#fff 100%);
       box-shadow: 0 8px 24px 0 #fd9c3a24;
-      border-bottom: 7px solid #ea2a2a;
+      border-bottom: 7px solid var(--main-red);
       outline: none;
     }
-    .service-item h3 { color: #ea2a2a; margin-bottom: 0.11em; font-size:1.13em;}
+    .service-item h3 { color: var(--main-red); margin-bottom: 0.11em; font-size:1.13em;}
 
+    /* Menu */
     .menu-section { background: linear-gradient(120deg,#fff 80%,#fff6f0 100%); }
     .menu-table {
       width: 100%; border-collapse: collapse;
       margin-bottom: 1.2em;
-      background: #fff; border-radius: 2em;
+      background: #fff; border-radius: var(--radius);
       overflow: hidden;
       font-size: 1.03em;
       box-shadow: 0 1px 12px #ea2a2a10;
@@ -272,7 +287,7 @@
       border-bottom: 1px solid #ececec;
     }
     .menu-table th {
-      background: #fd9c3a;
+      background: var(--main-orange);
       color: #fff;
       font-weight: 900;
       letter-spacing: 0.02em;
@@ -283,25 +298,26 @@
     .menu-section h3 {
       margin-top: 2em;
       margin-bottom: 0.4em;
-      font-size: 1.19em;
-      color: #ea2a2a;
+      font-size: 1.15em;
+      color: var(--main-red);
       font-family: inherit;
       font-weight: 800;
       letter-spacing: 0.01em;
     }
 
+    /* Rezervácia */
     #rezervacia {
       background: linear-gradient(120deg, #fff8f3 60%, #f8fbff 100%);
-      box-shadow: 0 2px 18px #ea2a2a13;
-      border-radius: 2.1em;
+      box-shadow: var(--main-shadow);
+      border-radius: var(--radius);
       max-width: 600px;
       margin: 2em auto 3em auto;
       padding: 2em 1em;
     }
-    #rezervacia h2 { color: #ea2a2a; text-align: center; margin-bottom: 24px; }
-    #rezervacia form label { font-weight: 700; color: #ea2a2a; margin-bottom: 4px; margin-top: 8px; display: block;}
+    #rezervacia h2 { color: var(--main-red); text-align: center; margin-bottom: 24px; }
+    #rezervacia form label { font-weight: 700; color: var(--main-red); margin-bottom: 4px; margin-top: 8px; display: block;}
     #rezervacia form input, #rezervacia form textarea {
-      border: 1.5px solid #fd9c3a;
+      border: 1.5px solid var(--main-orange);
       margin-bottom: 12px;
       border-radius: 2em;
       background: #fff6f0;
@@ -313,11 +329,11 @@
       font-family: inherit;
     }
     #rezervacia form input:focus, #rezervacia form textarea:focus {
-      border: 1.7px solid #ea2a2a;
+      border: 1.7px solid var(--main-red);
       outline: none;
     }
     #rezervacia button[type="submit"] {
-      background: linear-gradient(90deg,#fd9c3a 0%,#ea2a2a 100%);
+      background: var(--cta-gradient);
       color:#fff;
       border:none;
       border-radius:2em;
@@ -331,7 +347,7 @@
       width: 100%;
     }
     #rezervacia button[type="submit"]:hover {
-      background: linear-gradient(90deg,#ea2a2a 0%,#fd9c3a 100%);
+      background: var(--cta-gradient-alt);
     }
     #reservation-success {
       margin-top: 18px;
@@ -344,27 +360,47 @@
       section {max-width:96vw;}
     }
     @media (max-width: 480px) {
-      form {
-        padding: 10px;
-      }
-      form input,
-      form textarea,
-      form button {
-        font-size: 14px;
-        padding: 10px;
-      }
-      a, button {
-        font-size: 14px;
-        padding: 10px 14px;
-      }
+      form { padding: 10px;}
+      form input, form textarea, form button { font-size: 14px; padding: 10px;}
+      a, button { font-size: 14px; padding: 10px 14px;}
       body { font-size: 12px; }
     }
+
+    /* Kontakt */
+    #kontakt {
+      background: linear-gradient(120deg,#fff 80%,#f8fbff 100%);
+      box-shadow: 0 2px 18px #ea2a2a13;
+      border-radius: var(--radius);
+      max-width: 600px;
+      margin: 2em auto 3em auto;
+      padding: 2em 1em;
+    }
+    #kontakt h2 { color: var(--main-red); text-align: center; }
+    #kontakt a { color: var(--main-orange);}
+    #kontakt ul { margin: 0.7em 0 0.7em 0.5em; }
+    #kontakt iframe { border:0; border-radius:1em; width:100%; height:230px; margin-top:1em; }
+    #kontakt .contact-social {
+      text-align: left; margin-top: 1em;
+    }
+    #kontakt .contact-social a {
+      margin-right: 0.7em;
+      font-size: 1.4em;
+      color: var(--main-red);
+      vertical-align: middle;
+      transition: color 0.15s;
+    }
+    #kontakt .contact-social a:hover { color: var(--main-orange);}
+    @media (max-width: 600px) {
+      #kontakt {padding:1em 0.5em; border-radius:1em;}
+    }
+
+    /* Footer */
     footer {
-      background: #ea2a2a;
+      background: var(--main-red);
       color: #fff;
       padding: 2em 1em 1em 1em;
       margin-top: 2em;
-      box-shadow: 0 -2px 6px 0 #ffd60012;
+      box-shadow: 0 -2px 6px 0 #fd9c3a12;
       font-size: 0.98em;
     }
     .footer-content {
@@ -378,7 +414,7 @@
       flex-direction: row;
     }
     .footer-content a { color: #fff; margin-right: 0.8em; }
-    .footer-content a:hover { color: #fd9c3a; }
+    .footer-content a:hover { color: var(--main-orange); }
     .footer-copy { flex: 1 1 100%; margin-top: 1em; text-align: center; color: #f7e8e8; }
     @media (max-width: 700px) {
       .footer-content { flex-direction: column; gap: 0.8em; align-items: center;}
@@ -406,10 +442,18 @@
     <div class="hero-content">
       <div class="hero-title">Bowling & pizza pre celú rodinu v Čani</div>
       <div class="hero-desc">
-        Moderné bowlingové dráhy, vynikajúca pizza a príjemná atmosféra. Oslavy, turnaje, rodinné večery aj rozvoz pizze v Čani a okolí. Príďte si užiť zážitok na celý večer!
+        Moderné bowlingové dráhy, výborná pizza a priateľská atmosféra. Oslavy, turnaje, rodinné večery aj rozvoz pizze v Čani a okolí. Príďte si užiť zážitok na celý večer!
       </div>
-      <a href="#rezervacia" class="btn-cta">Rezervovať bowling</a>
-      <a href="#menu" class="btn-cta" style="background: linear-gradient(90deg, #ea2a2a 50%, #fd9c3a 100%);">Objednať pizzu</a>
+      <div class="hero-cta">
+        <a href="#rezervacia" class="btn-cta">Rezervuj si dráhu</a>
+        <a href="#menu" class="btn-cta alt">Objednaj pizzu</a>
+      </div>
+      <div style="margin-top:1em;">
+        <b>Otváracie hodiny:</b><br>
+        Po–Št: 15:00–22:00 &nbsp;|&nbsp; Pi: 15:00–23:00<br>
+        So: 12:00–23:00 &nbsp;|&nbsp; Ne: 15:00–22:00<br>
+        <b>Tel.:</b> <a href="tel:+421915666066" style="color:var(--main-orange);font-weight:700;">0915 666 066</a>
+      </div>
     </div>
   </section>
 
@@ -417,22 +461,20 @@
     <h2 class="about-title">O nás</h2>
     <div class="about-container">
       <div class="about-text">
-        <h3>Naša história</h3>
+        <h3>Kto sme</h3>
         <p>
-          Bowling Čaňa vznikol z lásky k zábave, športu a príjemným stretnutiam. Od začiatku sme chceli vytvoriť miesto, kde sa každý cíti vítaný – či už prídete s rodinou, priateľmi alebo kolegami.
+          Sme miesto, kde sa stretáva zábava, pohyb a dobré chute. Vytvorili sme Bowling Čaňa, aby ste si mohli užiť voľný čas s rodinou alebo priateľmi v príjemnej atmosfére.
+        </p>
+        <h3>Čo ponúkame</h3>
+        <p>
+          Moderné bowlingové dráhy, výbornú pizzu z kvalitných surovín a vždy niečo na pitie. Organizujeme aj oslavy, turnaje a akcie na mieru.
         </p>
         <h3>Prečo si vybrať nás</h3>
         <p>
-          Ponúkame moderné bowlingové dráhy, útulný interiér a poctivú pizzu pripravenú z kvalitných surovín. Záleží nám na spokojnosti každého hosťa – vaša pohoda a dobrá nálada sú u nás na prvom mieste.
-        </p>
-        <h3>Zážitok pre každého</h3>
-        <p>
-          U nás si užijú deti, dospelí aj seniori – pravidelne organizujeme turnaje, oslavy a špeciálne akcie na mieru. Príďte si zahrať, vychutnať pizzu a stráviť príjemný čas v skvelej spoločnosti.
+          U nás sa každý cíti vítaný. Príďte si zahrať, ochutnať pizzu a zabaviť sa – radi vás privítame!
         </p>
       </div>
-      <div class="about-image">
-        <!-- obrázok odstránený -->
-      </div>
+      <div class="about-image"><!-- obrázok odstránený --></div>
     </div>
   </section>
 
@@ -674,12 +716,12 @@
     </form>
   </section>
 
-  <section id="kontakt" style="max-width:600px;margin:2em auto 3em auto;background:#fff;border-radius:2.1em;box-shadow:0 2px 18px #ea2a2a13;padding:2em 1em;">
+  <section id="kontakt">
     <h2>Kontakt</h2>
     <div>
       <b>Adresa:</b> Osloboditeľov 18, 044 14 Čaňa<br>
-      <b>Telefón:</b> <a href="tel:+421915666066" style="color:#fd9c3a;text-decoration:none;">0915 666 066</a><br>
-      <b>Email:</b> <a href="mailto:info@bowlingcana.sk" style="color:#fd9c3a;text-decoration:none;">info@bowlingcana.sk</a><br>
+      <b>Telefón:</b> <a href="tel:+421915666066">0915 666 066</a><br>
+      <b>Email:</b> <a href="mailto:info@bowlingcana.sk">info@bowlingcana.sk</a><br>
       <b>Otváracie hodiny:</b>
       <ul>
         <li>Pondelok – Štvrtok: 15:00 – 22:00</li>
@@ -687,10 +729,16 @@
         <li>Sobota: 12:00 – 23:00</li>
         <li>Nedeľa: 15:00 – 22:00</li>
       </ul>
+      <div class="contact-social">
+        <a href="https://facebook.com/bowlingcana" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook fa-lg"></i>
+        </a>
+        <a href="https://instagram.com/bowlingcana" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram fa-lg"></i>
+        </a>
+      </div>
     </div>
-    <div style="margin-top:1.5em;">
-      <iframe src="https://www.google.com/maps?q=Osloboditeľov+18,+Čaňa,+Slovensko&output=embed" width="100%" height="230" style="border:0;border-radius:1em;" allowfullscreen="" loading="lazy" title="Mapa Bowling Čaňa"></iframe>
-    </div>
+    <iframe src="https://www.google.com/maps?q=Osloboditeľov+18,+Čaňa,+Slovensko&output=embed" allowfullscreen="" loading="lazy" title="Mapa Bowling Čaňa"></iframe>
   </section>
 
   <footer>
@@ -756,10 +804,9 @@
         successDiv.innerHTML = "Odosielam rezerváciu...";
         const data = Object.fromEntries(new FormData(form).entries());
         try {
-          // Tu volajte svoju backend logiku, napr. email, API, atď.
           setTimeout(() => {
             successDiv.style.color = 'green';
-            successDiv.innerHTML = 'Vaša rezervácia bola odoslaná! Čoskoro dostanete potvrdenie.';
+            successDiv.innerHTML = 'Vaša rezervácia bola úspešne odoslaná!';
             form.reset();
           }, 1100);
         } catch (err) {
