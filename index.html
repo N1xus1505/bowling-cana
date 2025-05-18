@@ -3,503 +3,394 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bowling Čaňa & Pizza</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;600;400&family=Quicksand:wght@600;400&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <title>Bowling Čaňa &amp; Pizza | Moderný bowling, pizza a zábava v Čani</title>
+  <meta name="description" content="Bowling Čaňa - moderný bowling, výborná pizza, pivo, víno a zábava pre rodiny, partie aj firmy. Rezervuj si zážitok ešte dnes!">
+  <meta name="keywords" content="bowling, pizza, Čaňa, rezervácia, rodina, pivo, akcie, zábava, reštaurácia">
+  <meta name="author" content="Bowling Čaňa">
   <link rel="icon" href="https://cdn.pixabay.com/photo/2013/07/13/12/37/bowling-146862_1280.png">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-:root {
-  --main-red: #ea2a2a;
-  --main-dark: #181818;
-  --main-bg: #fff6f0;
-  --main-yellow: #ffd600;
-  --main-white: #fff;
-  --main-accent: #22b5e2;
-  --main-green: #27ae60;
-  --main-grey: #736e6b;
-  --main-shadow: 0 10px 32px 0 rgba(234,42,42,0.13), 0 1.5px 10px 0 #ffd60024;
-  --radius: 2.1em;
-  --font-main: 'Montserrat', 'Quicksand', 'Roboto', Arial, sans-serif;
-}
-*, *::before, *::after { box-sizing: border-box; }
-html, body {
-  margin: 0; padding: 0;
-  font-family: var(--font-main);
-  color: var(--main-dark);
-  background: var(--main-bg);
-  min-height: 100vh;
-  font-size: 1.1rem;
-}
-img { max-width: 100%; height: auto; display: block; }
-header {
-  background: linear-gradient(90deg, var(--main-red) 80%, var(--main-yellow) 120%);
-  color: #fff;
-  position: sticky; top:0; z-index: 99;
-  box-shadow: var(--main-shadow);
-  min-height: 64px;
-}
-.topbar {
-  max-width: 1290px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  padding: 0.7em 1em;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  position: relative;
-}
-.logo {
-  font-size: 2.1em;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  color: #fff;
-  text-shadow: 0 2px 8px #e0000030, 0 1px 0 #fff2;
-  user-select: none;
-}
-nav { position: relative; }
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-  padding: 0;
-  margin: 0;
-  align-items: center;
-}
-.hamburger {
-  display: none;
-  cursor: pointer;
-  font-size: 28px;
-  background: none;
-  border: none;
-  color: #fff;
-  padding: 0.4em 0.7em;
-  min-width: 44px;
-  min-height: 44px;
-  align-items: center;
-  justify-content: center;
-}
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.09em;
-  letter-spacing: 0.02em;
-  border-radius: 2em;
-  background: none;
-  transition: background 0.13s, color 0.13s, transform 0.13s;
-  outline: none;
-  display: inline-flex;
-  min-height: 40px;
-  min-width: 40px;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 12px;
-  font-size: 16px;
-  user-select: none;
-}
-nav ul li a:hover,
-nav ul li a:focus {
-  color: var(--main-red); background: #fff;
-  transform: scale(1.07);
-}
-nav ul li a.active { background: var(--main-yellow); color: var(--main-red);}
-@media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-    position: absolute;
-    top: 10px;
-    right: 0;
-    z-index: 100;
-  }
-  nav ul {
-    display: none;
-    flex-direction: column;
-    gap: 15px;
-    background-color: #fff;
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    width: 200px;
-    box-shadow: 0 2px 24px #0002;
-  }
-  nav ul.show {
-    display: flex;
-  }
-  nav ul li a {
-    color: var(--main-dark);
-    width: 100%;
-    text-align: left;
-    font-size: 17px;
-  }
-}
-.hero {
-  display: flex; flex-wrap:wrap;
-  align-items: center; justify-content: space-between;
-  text-align: left;
-  background: linear-gradient(90deg,#fff 55%,#fff3 100%);
-  border-radius: 0 0 var(--radius) var(--radius);
-  margin-bottom: 2.5em;
-  box-shadow: var(--main-shadow);
-  max-width: 1290px; margin-left:auto; margin-right:auto;
-  min-height: 320px;
-  overflow: hidden;
-  position: relative;
-}
-.hero-content {
-  flex: 1 1 320px;
-  padding: 2.3em 1.2em 2em 2.1em;
-  z-index: 2;
-}
-.hero-title {
-  font-size: 2.2em;
-  color: var(--main-red);
-  font-weight: 800;
-  margin-bottom: 0.15em;
-  letter-spacing: 0.01em;
-  line-height: 1.07;
-  text-shadow: 0 2px 8px #e0000020, 0 1px 0 #fff2;
-}
-.hero-desc {
-  color: var(--main-grey);
-  font-size: 1.13em;
-  margin-bottom: 2em;
-  font-weight: 600;
-  font-family: var(--font-main);
-  max-width: 510px;
-  line-height: 1.35;
-}
-.hero .btn-main {
-  font-family: var(--font-main);
-  background: linear-gradient(90deg, var(--main-red) 70%, var(--main-accent) 100%);
-  color: #fff;
-  border: none;
-  border-radius: 2.4em;
-  padding: 1.08em 2em;
-  font-size: 1.1em;
-  font-weight: 900;
-  cursor: pointer;
-  box-shadow: 0 2px 18px 0 #ea2a2a11;
-  margin-bottom: 1.2em;
-  margin-top: 1.1em;
-  transition: background 0.14s, transform 0.14s, box-shadow 0.14s;
-  letter-spacing: 0.02em;
-  text-shadow: 0 2px 8px #ea2a2a33, 0 1px 0 #fff2;
-  min-height: 44px;
-  min-width: 44px;
-}
-.hero .btn-main:hover, .btn-main:focus {
-  background: linear-gradient(90deg,var(--main-yellow) 0%,var(--main-green) 100%);
-  color: var(--main-red);
-  transform: scale(1.09) translateY(-2px);
-  box-shadow: 0 8px 22px #27ae6040;
-}
-.hero-img {
-  min-width: 220px; max-width: 420px; width: 35vw;
-  aspect-ratio: 4/3; object-fit: cover;
-  border-radius: 0 0 var(--radius) 0;
-  margin-left: 0.6em;
-  box-shadow: 0 2px 16px #ea2a2a11;
-  border: 4px solid var(--main-yellow);
-  z-index: 1;
-}
-section {
-  max-width: 1280px;
-  margin: 0 auto 2.5em auto;
-  padding: 2.3em 1.15em 2.1em 1.15em;
-  background: #fff;
-  border-radius: var(--radius);
-  box-shadow: var(--main-shadow);
-  position: relative;
-}
-h2 { color: var(--main-red); font-size: 1.45em; font-family:var(--font-main); font-weight: 800; margin-bottom: 1.15em; letter-spacing: 0.03em;}
-h3 { color: var(--main-accent); font-size:1.17em; margin-top:1.3em;}
-.services .service-items {
-  display: flex; flex-wrap: wrap; gap: 1.4em; margin-bottom: 1.1em; justify-content: center;
-}
-.service-item {
-  flex: 1 1 170px; max-width: 250px;
-  background: linear-gradient(120deg,#fff,#fff7e6 95%);
-  border-radius: var(--radius);
-  box-shadow: 0 2px 12px 0 #ea2a2a15;
-  padding: 1.5em 0.7em 1.2em 0.7em;
-  text-align: center;
-  transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s, background 0.16s;
-  opacity: 1; border-bottom: 6px solid var(--main-accent);
-  cursor: pointer;
-  margin-bottom: 0.6em;
-  font-family: var(--font-main);
-}
-.service-item .icon {
-  font-size: 2.2em; margin-bottom: 0.38em; display: block;
-  filter: drop-shadow(0 4px 12px #ffd60070);
-}
-.service-item:hover, .service-item:focus {
-  transform: scale(1.07) translateY(-5px) rotate(-1deg);
-  background: linear-gradient(100deg,#fffbe6 50%,#fff 100%);
-  box-shadow: 0 8px 24px 0 #ffd60024;
-  border-bottom: 7px solid var(--main-green);
-  outline: none;
-}
-.service-item h3 { color: var(--main-red); margin-bottom: 0.11em; font-size:1.13em;}
-.menu-table {
-  width: 100%; border-collapse: collapse;
-  margin-bottom: 1.2em;
-  background: #fff; border-radius: var(--radius);
-  overflow: hidden;
-  font-size: 1.03em;
-  box-shadow: 0 1px 12px #ea2a2a10;
-  font-family: var(--font-main);
-}
-.menu-table th, .menu-table td {
-  padding: 0.85em 0.6em;
-  border-bottom: 1px solid #ececec;
-}
-.menu-table th {
-  background: var(--main-accent);
-  color: #fff;
-  font-weight: 900;
-  letter-spacing: 0.02em;
-  font-size: 1.07em;
-}
-.menu-table tr:last-child td { border-bottom: none;}
-.menu-table td { color: var(--main-dark);}
-.menu-section { margin-bottom: 2.5em; }
-.menu-section h3 {
-  margin-top: 2em;
-  margin-bottom: 0.4em;
-  font-size: 1.19em;
-  color: var(--main-red);
-  font-family: var(--font-main);
-  font-weight: 800;
-  letter-spacing: 0.01em;
-}
-footer {
-  background: var(--main-red);
-  color: #fff;
-  padding: 2em 1em 1em 1em;
-  margin-top: 2em;
-  box-shadow: 0 -2px 6px 0 #ffd60012;
-  font-size: 0.97em;
-}
-.footer-content {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.3em;
-  align-items: center;
-  justify-content: space-between;
-}
-.footer-links a, .footer-social a {
-  margin-right: 0.9em;
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.17s;
-  font-weight: 700;
-  font-family: var(--font-main);
-  min-height: 40px;
-  min-width: 40px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 12px;
-  font-size: 16px;
-  cursor: pointer;
-  user-select: none;
-}
-.footer-links a:hover, .footer-social a:hover, .footer-links a:focus, .footer-social a:focus { color: var(--main-yellow); outline:none;}
-.footer-copy {
-  flex: 1 1 100%;
-  margin-top: 1em;
-  text-align: center;
-  color: #f7e8e8;
-}
-#rezervacia form label {
-  font-weight: 700;
-  color: #ea2a2a;
-  margin-bottom: 4px;
-  margin-top: 8px;
-  display: block;
-}
-#rezervacia form input,
-#rezervacia form textarea {
-  border: 1.5px solid #ffd600;
-  margin-bottom: 12px;
-  border-radius: 2em;
-  background: #fff6f0;
-  font-size: 1em;
-  color: #181818;
-  padding: 12px 16px;
-  transition: border 0.18s;
-}
-#rezervacia form input:focus,
-#rezervacia form textarea:focus {
-  border: 1.7px solid #22b5e2;
-  outline: none;
-}
-#rezervacia button[type="submit"] {
-  background:#ea2a2a;
-  color:#fff;
-  border:none;
-  border-radius:2em;
-  padding:13px 0;
-  font-size:1.13em;
-  font-weight:800;
-  margin-top:6px;
-  cursor:pointer;
-  box-shadow:0 2px 12px #ea2a2a18;
-  transition:background 0.15s;
-}
-#rezervacia button[type="submit"]:hover {
-  background:#c91818;
-}
-#reservation-success {
-  margin-top: 18px;
-  text-align: center;
-  font-weight: 600;
-  min-height: 22px;
-}
-.about-section {
-  max-width: 900px;
-  margin: 3em auto 2.5em auto;
-  padding: 2.5em 2em;
-  border-radius: 2em;
-  background: linear-gradient(120deg, #fff8f3 70%, #f8fbff 100%);
-  box-shadow: 0 6px 32px 0 #ea2a2a13, 0 1.5px 10px 0 #ffd60024;
-}
-.about-title {
-  text-align: center;
-  font-size: 2.4em;
-  font-weight: 900;
-  letter-spacing: 0.03em;
-  margin-bottom: 1.4em;
-  color: #ea2a2a;
-  font-family: 'Montserrat', 'Quicksand', 'Roboto', Arial, sans-serif;
-}
-.about-container {
-  display: flex;
-  gap: 2.5em;
-  align-items: flex-start;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.about-text {
-  flex: 1 1 340px;
-  min-width: 270px;
-  max-width: 520px;
-  font-family: 'Quicksand', 'Roboto', Arial, sans-serif;
-  font-size: 1.13em;
-  color: #181818;
-  line-height: 1.7;
-  letter-spacing: 0.01em;
-  padding: 0.4em 0.2em 0.4em 0.3em;
-  text-align: left;
-  background: none;
-}
-.about-text h3 {
-  margin-top: 0.9em;
-  margin-bottom: 0.3em;
-  font-size: 1.23em;
-  font-weight: 800;
-  color: #22b5e2;
-  letter-spacing: 0.01em;
-  font-family: 'Montserrat', 'Quicksand', 'Roboto', Arial, sans-serif;
-}
-.about-text p {
-  margin-bottom: 0.6em;
-  margin-top: 0;
-  padding-left: 0.1em;
-}
-.about-image {
-  flex: 1 1 260px;
-  min-width: 210px;
-  max-width: 340px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 0.6em 0 0.6em 0;
-}
-.about-image img {
-  width: 100%;
-  max-width: 330px;
-  border-radius: 1.3em;
-  box-shadow: 0 8px 32px #18181815, 0 2px 18px #ffd60019;
-  object-fit: cover;
-  background: #fff;
-  display: block;
-}
-@media (max-width: 1024px) {
-  .hero-content {padding:1.2em 0.5em;}
-  .hero-img {max-width: 90vw;}
-  section {max-width:96vw;}
-}
-@media (max-width: 900px) {
-  .topbar {flex-direction:column;gap:0.7em;align-items:flex-start;}
-  .logo{margin-bottom:0.5em;}
-}
-@media (max-width: 800px) {
-  .about-container {
-    flex-direction: column;
-    gap: 1.7em;
-    align-items: stretch;
-  }
-  .about-image {
-    max-width: 460px;
-    margin: 0 auto;
-    padding: 0.4em 0 0.4em 0;
-  }
-}
-@media (max-width: 768px) {
-  .hero {flex-direction:column; padding: 1em 0.5em;}
-  .hero-img {width: 90vw; min-width: 0; margin-top: 1em; border-radius: var(--radius); margin-left: 0; max-width: 100%;}
-  section {padding: 1.1em 0.3em; border-radius: 1em;}
-  .footer-content {flex-direction:column;gap:0.8em;}
-  .services .service-items {flex-direction:column;}
-}
-@media (max-width: 768px) {
-  body { font-size: 14px; }
-}
-@media (max-width: 600px) {
-  .about-section {
-    padding: 1em 0.5em;
-    border-radius: 1em;
-  }
-  .about-title {
-    font-size: 1.7em;
-    margin-bottom: 1em;
-  }
-  .about-text {
-    font-size: 1em;
-    padding: 0.2em 0.1em 0.2em 0.1em;
-  }
-  .about-text h3 { font-size: 1.09em;}
-}
-@media (max-width: 480px) {
-  form {
-    padding: 10px;
-  }
-  form input,
-  form textarea,
-  form button {
-    font-size: 14px;
-    padding: 10px;
-  }
-  a, button {
-    font-size: 14px;
-    padding: 10px 14px;
-  }
-  body { font-size: 12px; }
-}
+    html, body {
+      margin: 0; padding: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: #fff6f0;
+      color: #2a1c1c;
+      font-size: 1.1rem;
+      scroll-behavior: smooth;
+    }
+    a { color: #e65100; text-decoration: none; }
+    a:hover, a:focus { text-decoration: underline; }
+    header {
+      background: linear-gradient(90deg, #ea2a2a 70%, #fd9c3a 100%);
+      color: #fff;
+      position: sticky; top:0; z-index: 100;
+      box-shadow: 0 2px 18px #ea2a2a30;
+    }
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7em 1em;
+    }
+    .logo {
+      font-size: 2em;
+      font-weight: 900;
+      letter-spacing: 0.03em;
+      color: #fff;
+      text-shadow: 0 2px 8px #c6282820;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      padding: 0; margin: 0;
+      align-items: center;
+    }
+    nav ul li a {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.08em;
+      border-radius: 2em;
+      padding: 8px 16px;
+      transition: background 0.12s, color 0.12s;
+      position: relative;
+      display: block;
+    }
+    nav ul li a.active, nav ul li a:hover, nav ul li a:focus {
+      background: #fff;
+      color: #ea2a2a;
+    }
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2em;
+      cursor: pointer;
+    }
+    @media (max-width: 900px) {
+      .nav-container { flex-direction: column; align-items: flex-start; }
+      .logo { margin-bottom: 0.35em; }
+    }
+    @media (max-width: 650px) {
+      nav ul { display: none; flex-direction: column; gap: 10px; background: #fff; border-radius: 1em; position: absolute; top: 60px; right: 18px; box-shadow: 0 2px 24px #ea2a2a20; z-index: 200; padding: 16px 0;}
+      nav ul.show { display: flex; }
+      nav ul li a { color: #ea2a2a; font-size: 1.1em; background: none; }
+      .hamburger { display: block; position: absolute; right: 10px; top: 13px; }
+      .nav-container { position: relative; }
+    }
+
+    .hero {
+      display: flex; flex-wrap:wrap;
+      align-items: center; justify-content: space-between;
+      background: linear-gradient(90deg,#fff 55%,#ffe3d0 100%);
+      border-radius: 0 0 2em 2em;
+      margin-bottom: 2em;
+      box-shadow: 0 2px 18px #ea2a2a13;
+      max-width: 1100px; margin-left:auto; margin-right:auto;
+      min-height: 220px;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-content {
+      flex: 1 1 330px;
+      padding: 2.3em 1.2em 2em 2.1em;
+      z-index: 2;
+      text-align: left;
+    }
+    .hero-title {
+      font-size: 2.3em;
+      color: #ea2a2a;
+      font-weight: 900;
+      margin-bottom: 0.12em;
+      letter-spacing: 0.01em;
+      line-height: 1.07;
+    }
+    .hero-desc {
+      color: #5a4a43;
+      font-size: 1.15em;
+      margin-bottom: 2em;
+      font-weight: 500;
+      line-height: 1.5;
+      max-width: 510px;
+    }
+    .btn-cta {
+      display: inline-block;
+      font-family: inherit;
+      background: linear-gradient(90deg,#fd9c3a 20%, #ea2a2a 100%);
+      color: #fff;
+      border: none;
+      border-radius: 2em;
+      padding: 1em 2.1em;
+      font-size: 1.13em;
+      font-weight: 900;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      text-shadow: 0 2px 8px #ea2a2a33;
+      margin-right: 0.7em;
+      margin-bottom: 1.1em;
+      transition: background 0.18s, color 0.18s, transform 0.13s;
+      box-shadow: 0 2px 18px #ea2a2a10;
+      min-height: 44px;
+      min-width: 44px;
+    }
+    .btn-cta:hover, .btn-cta:focus {
+      background: linear-gradient(90deg,#ea2a2a 0%,#fd9c3a 80%);
+      color: #fffbe6;
+      transform: scale(1.07) translateY(-2px);
+    }
+    @media (max-width: 900px) {
+      .hero {flex-direction:column;align-items:stretch;}
+      .hero-content {padding: 1.5em 0.6em;}
+    }
+    @media (max-width: 500px) {
+      .hero-title {font-size: 1.35em;}
+      .hero-content {padding: 0.8em 0.1em;}
+    }
+
+    .about-section {
+      max-width: 900px;
+      margin: 3em auto 2.5em auto;
+      padding: 2.5em 2em;
+      border-radius: 2em;
+      background: linear-gradient(120deg, #fff8f3 70%, #f8fbff 100%);
+      box-shadow: 0 6px 32px 0 #ea2a2a13, 0 1.5px 10px 0 #ffd60024;
+    }
+    .about-title {
+      text-align: center;
+      font-size: 2.4em;
+      font-weight: 900;
+      letter-spacing: 0.03em;
+      margin-bottom: 1.4em;
+      color: #ea2a2a;
+      font-family: 'Roboto', Arial, sans-serif;
+    }
+    .about-container {
+      display: flex;
+      gap: 2.5em;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .about-text {
+      flex: 1 1 340px;
+      min-width: 270px;
+      max-width: 100%;
+      font-family: 'Roboto', Arial, sans-serif;
+      font-size: 1.13em;
+      color: #181818;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+      padding: 0.4em 0.2em 0.4em 0.3em;
+      text-align: left;
+    }
+    .about-text h3 {
+      margin-top: 0.9em;
+      margin-bottom: 0.3em;
+      font-size: 1.23em;
+      font-weight: 800;
+      color: #fd9c3a;
+      font-family: inherit;
+      letter-spacing: 0.01em;
+    }
+    .about-text p {
+      margin-bottom: 0.6em;
+      margin-top: 0;
+      padding-left: 0.1em;
+    }
+    .about-image {
+      display: none;
+    }
+    @media (max-width: 800px) {
+      .about-container {
+        flex-direction: column;
+        gap: 1.7em;
+        align-items: stretch;
+      }
+    }
+    @media (max-width: 600px) {
+      .about-section {
+        padding: 1em 0.5em;
+        border-radius: 1em;
+      }
+      .about-title {
+        font-size: 1.7em;
+        margin-bottom: 1em;
+      }
+      .about-text {
+        font-size: 1em;
+        padding: 0.2em 0.1em 0.2em 0.1em;
+      }
+      .about-text h3 { font-size: 1.09em;}
+    }
+
+    .services { background: linear-gradient(120deg, #fff6f0 60%, #fff 100%);}
+    .services .service-items {
+      display: flex; flex-wrap: wrap; gap: 1.4em; margin-bottom: 1.1em; justify-content: center;
+    }
+    .service-item {
+      flex: 1 1 170px; max-width: 250px;
+      background: linear-gradient(120deg,#fff,#fff3e6 90%);
+      border-radius: 2em;
+      box-shadow: 0 2px 12px 0 #ea2a2a15;
+      padding: 1.5em 0.7em 1.2em 0.7em;
+      text-align: center;
+      transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s, background 0.16s;
+      opacity: 1; border-bottom: 6px solid #fd9c3a;
+      cursor: pointer;
+      margin-bottom: 0.6em;
+      font-family: inherit;
+    }
+    .service-item .icon {
+      font-size: 2.2em; margin-bottom: 0.38em; display: block;
+      filter: drop-shadow(0 4px 12px #ffd60070);
+    }
+    .service-item:hover, .service-item:focus {
+      transform: scale(1.07) translateY(-5px) rotate(-1deg);
+      background: linear-gradient(100deg,#fffbe6 50%,#fff 100%);
+      box-shadow: 0 8px 24px 0 #fd9c3a24;
+      border-bottom: 7px solid #ea2a2a;
+      outline: none;
+    }
+    .service-item h3 { color: #ea2a2a; margin-bottom: 0.11em; font-size:1.13em;}
+
+    .menu-section { background: linear-gradient(120deg,#fff 80%,#fff6f0 100%); }
+    .menu-table {
+      width: 100%; border-collapse: collapse;
+      margin-bottom: 1.2em;
+      background: #fff; border-radius: 2em;
+      overflow: hidden;
+      font-size: 1.03em;
+      box-shadow: 0 1px 12px #ea2a2a10;
+      font-family: inherit;
+    }
+    .menu-table th, .menu-table td {
+      padding: 0.85em 0.6em;
+      border-bottom: 1px solid #ececec;
+    }
+    .menu-table th {
+      background: #fd9c3a;
+      color: #fff;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      font-size: 1.07em;
+    }
+    .menu-table tr:last-child td { border-bottom: none;}
+    .menu-table td { color: #2a1c1c;}
+    .menu-section h3 {
+      margin-top: 2em;
+      margin-bottom: 0.4em;
+      font-size: 1.19em;
+      color: #ea2a2a;
+      font-family: inherit;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+
+    #rezervacia {
+      background: linear-gradient(120deg, #fff8f3 60%, #f8fbff 100%);
+      box-shadow: 0 2px 18px #ea2a2a13;
+      border-radius: 2.1em;
+      max-width: 600px;
+      margin: 2em auto 3em auto;
+      padding: 2em 1em;
+    }
+    #rezervacia h2 { color: #ea2a2a; text-align: center; margin-bottom: 24px; }
+    #rezervacia form label { font-weight: 700; color: #ea2a2a; margin-bottom: 4px; margin-top: 8px; display: block;}
+    #rezervacia form input, #rezervacia form textarea {
+      border: 1.5px solid #fd9c3a;
+      margin-bottom: 12px;
+      border-radius: 2em;
+      background: #fff6f0;
+      font-size: 1em;
+      color: #181818;
+      padding: 12px 16px;
+      transition: border 0.18s;
+      width: 100%;
+      font-family: inherit;
+    }
+    #rezervacia form input:focus, #rezervacia form textarea:focus {
+      border: 1.7px solid #ea2a2a;
+      outline: none;
+    }
+    #rezervacia button[type="submit"] {
+      background: linear-gradient(90deg,#fd9c3a 0%,#ea2a2a 100%);
+      color:#fff;
+      border:none;
+      border-radius:2em;
+      padding:13px 0;
+      font-size:1.13em;
+      font-weight:800;
+      margin-top:6px;
+      cursor:pointer;
+      box-shadow:0 2px 12px #ea2a2a18;
+      transition:background 0.15s;
+      width: 100%;
+    }
+    #rezervacia button[type="submit"]:hover {
+      background: linear-gradient(90deg,#ea2a2a 0%,#fd9c3a 100%);
+    }
+    #reservation-success {
+      margin-top: 18px;
+      text-align: center;
+      font-weight: 600;
+      min-height: 22px;
+    }
+    @media (max-width: 1024px) {
+      .hero-content {padding:1.2em 0.5em;}
+      section {max-width:96vw;}
+    }
+    @media (max-width: 480px) {
+      form {
+        padding: 10px;
+      }
+      form input,
+      form textarea,
+      form button {
+        font-size: 14px;
+        padding: 10px;
+      }
+      a, button {
+        font-size: 14px;
+        padding: 10px 14px;
+      }
+      body { font-size: 12px; }
+    }
+    footer {
+      background: #ea2a2a;
+      color: #fff;
+      padding: 2em 1em 1em 1em;
+      margin-top: 2em;
+      box-shadow: 0 -2px 6px 0 #ffd60012;
+      font-size: 0.98em;
+    }
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.3em;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+    .footer-content a { color: #fff; margin-right: 0.8em; }
+    .footer-content a:hover { color: #fd9c3a; }
+    .footer-copy { flex: 1 1 100%; margin-top: 1em; text-align: center; color: #f7e8e8; }
+    @media (max-width: 700px) {
+      .footer-content { flex-direction: column; gap: 0.8em; align-items: center;}
+    }
   </style>
 </head>
 <body>
   <header>
-    <div class="topbar">
+    <div class="nav-container">
       <div class="logo">Bowling Čaňa &amp; Pizza</div>
       <nav>
-        <button class="hamburger" aria-label="Zobraziť menu">☰</button>
+        <button class="hamburger" aria-label="Zobraziť menu"><i class="fas fa-bars"></i></button>
         <ul>
           <li><a href="#onas">O nás</a></li>
           <li><a href="#sluzby">Ponuka</a></li>
@@ -511,14 +402,16 @@ footer {
     </div>
   </header>
 
-  <div class="hero">
+  <section class="hero" id="uvod">
     <div class="hero-content">
       <div class="hero-title">Bowling & pizza pre celú rodinu v Čani</div>
-      <div class="hero-desc">Zaži energiu, zábavu a chute v Bowling Čaňa! Čaká ťa moderný bowling, výborná pizza, pivo, víno a nealko. Oslavy, turnaje, rodinné večery a rozvoz pizze v Čani a okolí.</div>
-      <a href="#rezervacia" class="btn-main">Objednať pizzu / Rezervovať bowling</a>
+      <div class="hero-desc">
+        Moderné bowlingové dráhy, vynikajúca pizza a príjemná atmosféra. Oslavy, turnaje, rodinné večery aj rozvoz pizze v Čani a okolí. Príďte si užiť zážitok na celý večer!
+      </div>
+      <a href="#rezervacia" class="btn-cta">Rezervovať bowling</a>
+      <a href="#menu" class="btn-cta" style="background: linear-gradient(90deg, #ea2a2a 50%, #fd9c3a 100%);">Objednať pizzu</a>
     </div>
-    <img class="hero-img" src="img/bowling3.webp" alt="Bowling a pizza v Čani" />
-  </div>
+  </section>
 
   <section id="onas" class="about-section">
     <h2 class="about-title">O nás</h2>
@@ -538,7 +431,7 @@ footer {
         </p>
       </div>
       <div class="about-image">
-        <img src="img/bowling1.webp" alt="Bowlingová dráha Bowling Čaňa" />
+        <!-- obrázok odstránený -->
       </div>
     </div>
   </section>
@@ -752,8 +645,8 @@ footer {
     </table>
   </section>
 
-  <section id="rezervacia" style="max-width:600px;margin:2em auto 3em auto;background:#fff;border-radius:2.1em;box-shadow:0 2px 18px #ea2a2a13;padding:2em 1em;">
-    <h2 style="color:#ea2a2a;text-align:center;margin-bottom:24px;">Rezervácia / Objednávka</h2>
+  <section id="rezervacia">
+    <h2>Rezervácia / Objednávka</h2>
     <form id="reservationForm" autocomplete="off" style="max-width:460px;margin:auto;">
       <label for="name">Meno a priezvisko*</label>
       <input type="text" id="name" name="name" placeholder="Vaše meno" required />
@@ -785,8 +678,8 @@ footer {
     <h2>Kontakt</h2>
     <div>
       <b>Adresa:</b> Osloboditeľov 18, 044 14 Čaňa<br>
-      <b>Telefón:</b> <a href="tel:+421915666066" style="color:var(--main-accent);text-decoration:none;">0915 666 066</a><br>
-      <b>Email:</b> <a href="mailto:info@bowlingcana.sk" style="color:var(--main-accent);text-decoration:none;">info@bowlingcana.sk</a><br>
+      <b>Telefón:</b> <a href="tel:+421915666066" style="color:#fd9c3a;text-decoration:none;">0915 666 066</a><br>
+      <b>Email:</b> <a href="mailto:info@bowlingcana.sk" style="color:#fd9c3a;text-decoration:none;">info@bowlingcana.sk</a><br>
       <b>Otváracie hodiny:</b>
       <ul>
         <li>Pondelok – Štvrtok: 15:00 – 22:00</li>
@@ -796,17 +689,21 @@ footer {
       </ul>
     </div>
     <div style="margin-top:1.5em;">
-      <iframe src="https://www.google.com/maps?q=Osloboditeľov+18,+Čaňa,+Slovensko&output=embed" width="100%" height="230" style="border:0;border-radius:1em;" allowfullscreen="" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps?q=Osloboditeľov+18,+Čaňa,+Slovensko&output=embed" width="100%" height="230" style="border:0;border-radius:1em;" allowfullscreen="" loading="lazy" title="Mapa Bowling Čaňa"></iframe>
     </div>
   </section>
 
   <footer>
     <div class="footer-content">
-      <div class="footer-social">
-        <a href="https://facebook.com/bowlingcana" target="_blank">Facebook</a>
-        <a href="https://instagram.com/bowlingcana" target="_blank">Instagram</a>
+      <div>
+        <a href="https://facebook.com/bowlingcana" target="_blank" aria-label="Facebook" style="margin-right:0.6em;">
+          <i class="fab fa-facebook fa-lg"></i>
+        </a>
+        <a href="https://instagram.com/bowlingcana" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram fa-lg"></i>
+        </a>
       </div>
-      <div class="footer-links">
+      <div>
         <a href="#onas">O nás</a>
         <a href="#sluzby">Ponuka</a>
         <a href="#menu">Menu</a>
@@ -814,45 +711,63 @@ footer {
         <a href="#kontakt">Kontakt</a>
       </div>
       <div class="footer-copy">
-        <a href="LICENSE" target="_blank" style="color:var(--main-yellow);text-decoration:underline;">MIT License</a>
-        &nbsp; &copy; 2025 Bowling Čaňa.
+        &copy; 2025 Bowling Čaňa &bull; Všetky práva vyhradené.
       </div>
     </div>
   </footer>
   <script>
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('nav ul');
-hamburger.addEventListener('click', () => {
-  navMenu.classList.toggle('show');
-});
+    // Hamburger menu
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('nav ul');
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
 
-const form = document.getElementById('reservationForm');
-const successDiv = document.getElementById('reservation-success');
-if(form) {
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    successDiv.style.color = '#ea2a2a';
-    successDiv.innerHTML = "Odosielam rezerváciu...";
-    const data = Object.fromEntries(new FormData(form).entries());
-    try {
-      const resp = await fetch('/.netlify/functions/send-reservation', {
-        method: 'POST',
-        body: JSON.stringify(data)
+    // Smooth scroll + active section highlighting
+    const navLinks = document.querySelectorAll('nav ul li a');
+    window.addEventListener('scroll', () => {
+      let fromTop = window.scrollY + 100;
+      navLinks.forEach(link => {
+        let section = document.querySelector(link.getAttribute('href'));
+        if (section && section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        }
       });
-      if(resp.ok){
-        successDiv.style.color = 'green';
-        successDiv.innerHTML = 'Rezervácia odoslaná! Čoskoro dostanete potvrdenie.';
-        form.reset();
-      } else {
-        successDiv.style.color = 'red';
-        successDiv.innerHTML = 'Chyba pri odosielaní. Skúste znova alebo kontaktujte nás.';
-      }
-    } catch (err) {
-      successDiv.style.color = 'red';
-      successDiv.innerHTML = 'Chyba siete. Skúste znova neskôr.';
+    });
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({behavior: 'smooth', block: 'start'});
+        }
+      });
+    });
+
+    // Rezervačný formulár - potvrdenie po odoslaní
+    const form = document.getElementById('reservationForm');
+    const successDiv = document.getElementById('reservation-success');
+    if(form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        successDiv.style.color = '#ea2a2a';
+        successDiv.innerHTML = "Odosielam rezerváciu...";
+        const data = Object.fromEntries(new FormData(form).entries());
+        try {
+          // Tu volajte svoju backend logiku, napr. email, API, atď.
+          setTimeout(() => {
+            successDiv.style.color = 'green';
+            successDiv.innerHTML = 'Vaša rezervácia bola odoslaná! Čoskoro dostanete potvrdenie.';
+            form.reset();
+          }, 1100);
+        } catch (err) {
+          successDiv.style.color = 'red';
+          successDiv.innerHTML = 'Chyba siete. Skúste znova neskôr.';
+        }
+      });
     }
-  });
-}
   </script>
 </body>
 </html>
