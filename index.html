@@ -361,6 +361,75 @@ footer {
   font-weight: 600;
   min-height: 22px;
 }
+.about-section {
+  max-width: 900px;
+  margin: 3em auto 2.5em auto;
+  padding: 2.5em 2em;
+  border-radius: 2em;
+  background: linear-gradient(120deg, #fff8f3 70%, #f8fbff 100%);
+  box-shadow: 0 6px 32px 0 #ea2a2a13, 0 1.5px 10px 0 #ffd60024;
+}
+.about-title {
+  text-align: center;
+  font-size: 2.4em;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  margin-bottom: 1.4em;
+  color: #ea2a2a;
+  font-family: 'Montserrat', 'Quicksand', 'Roboto', Arial, sans-serif;
+}
+.about-container {
+  display: flex;
+  gap: 2.5em;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.about-text {
+  flex: 1 1 340px;
+  min-width: 270px;
+  max-width: 520px;
+  font-family: 'Quicksand', 'Roboto', Arial, sans-serif;
+  font-size: 1.13em;
+  color: #181818;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  padding: 0.4em 0.2em 0.4em 0.3em;
+  text-align: left;
+  background: none;
+}
+.about-text h3 {
+  margin-top: 0.9em;
+  margin-bottom: 0.3em;
+  font-size: 1.23em;
+  font-weight: 800;
+  color: #22b5e2;
+  letter-spacing: 0.01em;
+  font-family: 'Montserrat', 'Quicksand', 'Roboto', Arial, sans-serif;
+}
+.about-text p {
+  margin-bottom: 0.6em;
+  margin-top: 0;
+  padding-left: 0.1em;
+}
+.about-image {
+  flex: 1 1 260px;
+  min-width: 210px;
+  max-width: 340px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0.6em 0 0.6em 0;
+}
+.about-image img {
+  width: 100%;
+  max-width: 330px;
+  border-radius: 1.3em;
+  box-shadow: 0 8px 32px #18181815, 0 2px 18px #ffd60019;
+  object-fit: cover;
+  background: #fff;
+  display: block;
+}
 @media (max-width: 1024px) {
   .hero-content {padding:1.2em 0.5em;}
   .hero-img {max-width: 90vw;}
@@ -369,6 +438,18 @@ footer {
 @media (max-width: 900px) {
   .topbar {flex-direction:column;gap:0.7em;align-items:flex-start;}
   .logo{margin-bottom:0.5em;}
+}
+@media (max-width: 800px) {
+  .about-container {
+    flex-direction: column;
+    gap: 1.7em;
+    align-items: stretch;
+  }
+  .about-image {
+    max-width: 460px;
+    margin: 0 auto;
+    padding: 0.4em 0 0.4em 0;
+  }
 }
 @media (max-width: 768px) {
   .hero {flex-direction:column; padding: 1em 0.5em;}
@@ -379,6 +460,21 @@ footer {
 }
 @media (max-width: 768px) {
   body { font-size: 14px; }
+}
+@media (max-width: 600px) {
+  .about-section {
+    padding: 1em 0.5em;
+    border-radius: 1em;
+  }
+  .about-title {
+    font-size: 1.7em;
+    margin-bottom: 1em;
+  }
+  .about-text {
+    font-size: 1em;
+    padding: 0.2em 0.1em 0.2em 0.1em;
+  }
+  .about-text h3 { font-size: 1.09em;}
 }
 @media (max-width: 480px) {
   form {
@@ -424,9 +520,27 @@ footer {
     <img class="hero-img" src="img/bowling3.webp" alt="Bowling a pizza v Čani" />
   </div>
 
-  <section id="onas">
-    <h2>O nás</h2>
-    <p>Bowling Čaňa je miesto plné energie, pohybu a chutí. Príď si zahrať na našich moderných bowlingových dráhach, vychutnaj si k tomu našu pravú pizzu a osviežujúce nealko alebo pivo. Tešíme sa na teba!</p>
+  <section id="onas" class="about-section">
+    <h2 class="about-title">O nás</h2>
+    <div class="about-container">
+      <div class="about-text">
+        <h3>Naša história</h3>
+        <p>
+          Bowling Čaňa vznikol z lásky k zábave, športu a príjemným stretnutiam. Od začiatku sme chceli vytvoriť miesto, kde sa každý cíti vítaný – či už prídete s rodinou, priateľmi alebo kolegami.
+        </p>
+        <h3>Prečo si vybrať nás</h3>
+        <p>
+          Ponúkame moderné bowlingové dráhy, útulný interiér a poctivú pizzu pripravenú z kvalitných surovín. Záleží nám na spokojnosti každého hosťa – vaša pohoda a dobrá nálada sú u nás na prvom mieste.
+        </p>
+        <h3>Zážitok pre každého</h3>
+        <p>
+          U nás si užijú deti, dospelí aj seniori – pravidelne organizujeme turnaje, oslavy a špeciálne akcie na mieru. Príďte si zahrať, vychutnať pizzu a stráviť príjemný čas v skvelej spoločnosti.
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="img/bowling1.webp" alt="Bowlingová dráha Bowling Čaňa" />
+      </div>
+    </div>
   </section>
 
   <section class="services" id="sluzby">
