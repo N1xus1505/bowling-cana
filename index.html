@@ -2,11 +2,10 @@
 <html lang="sk">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bowling Čaňa & Pizza</title>
-  <!-- Moderné fonty Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;600;400&family=Quicksand:wght@600;400&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="https://cdn.pixabay.com/photo/2013/07/13/12/37/bowling-146862_1280.png" />
+  <link rel="icon" href="https://cdn.pixabay.com/photo/2013/07/13/12/37/bowling-146862_1280.png">
   <style>
 :root {
   --main-red: #ea2a2a;
@@ -20,73 +19,134 @@
   --main-shadow: 0 10px 32px 0 rgba(234,42,42,0.13), 0 1.5px 10px 0 #ffd60024;
   --radius: 2.1em;
   --font-main: 'Montserrat', 'Quicksand', 'Roboto', Arial, sans-serif;
-  --font-hero: 'Montserrat', 'Quicksand', Arial, sans-serif;
-  --font-menu: 'Quicksand', Arial, sans-serif;
-  --font-card: 'Montserrat', 'Roboto', Arial, sans-serif;
 }
-html,body {
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html, body {
   margin: 0; padding: 0;
   font-family: var(--font-main);
   color: var(--main-dark);
   background: var(--main-bg);
   min-height: 100vh;
-  font-size: 1.11em;
-  box-sizing: border-box;
+  font-size: 1.1rem;
 }
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+/* Header & Navigation */
 header {
   background: linear-gradient(90deg, var(--main-red) 80%, var(--main-yellow) 120%);
   color: #fff;
   position: sticky; top:0; z-index: 99;
   box-shadow: var(--main-shadow);
-  min-height: 72px;
+  min-height: 64px;
 }
 .topbar {
   max-width: 1290px;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  padding: 0.9em 2em 0.6em 2em;
+  padding: 0.7em 1em;
   flex-wrap: wrap;
   justify-content: space-between;
+  position: relative;
 }
 .logo {
-  font-size: 2.25em;
-  font-family: var(--font-hero);
+  font-size: 2.1em;
   font-weight: 800;
   letter-spacing: 0.02em;
   color: #fff;
   text-shadow: 0 2px 8px #e0000030, 0 1px 0 #fff2;
+  user-select: none;
 }
 nav {
-  display: flex; flex-wrap: wrap; gap: 0.7em;
+  position: relative;
 }
-nav a {
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 0.4em 0.7em;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+}
+nav ul li a {
   color: #fff;
   text-decoration: none;
   font-weight: 700;
-  font-family: var(--font-main);
-  font-size: 1.11em;
+  font-size: 1.09em;
   letter-spacing: 0.02em;
-  padding: 0.41em 1.35em;
   border-radius: 2em;
   background: none;
-  transition: color 0.12s, background 0.12s;
-  position: relative;
+  transition: background 0.13s, color 0.13s, transform 0.13s;
+  outline: none;
+  display: inline-flex;
+  min-height: 40px;
+  min-width: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  font-size: 16px;
+  user-select: none;
 }
-nav a:after {
-  content:"";
-  position:absolute; left: 1em; right: 1em; bottom: 7px;
-  height: 2.5px;
-  background: var(--main-yellow);
-  border-radius: 1.3em;
-  width: 0%;
-  transition: width 0.19s;
-}
-nav a:hover, nav a:focus {
+nav ul li a:hover,
+nav ul li a:focus {
   color: var(--main-red); background: #fff;
+  transform: scale(1.07);
 }
-nav a:hover:after, nav a:focus:after { width: 90%; }
-nav a.active { background: var(--main-yellow); color: var(--main-red);}
+nav ul li a.active { background: var(--main-yellow); color: var(--main-red);}
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 100;
+  }
+  nav ul {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #fff;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 200px;
+    box-shadow: 0 2px 24px #0002;
+  }
+  nav ul.show {
+    display: flex;
+  }
+  nav ul li a {
+    color: var(--main-dark);
+    width: 100%;
+    text-align: left;
+    font-size: 17px;
+  }
+}
+/* Hero */
 .hero {
   display: flex; flex-wrap:wrap;
   align-items: center; justify-content: space-between;
@@ -96,32 +156,31 @@ nav a.active { background: var(--main-yellow); color: var(--main-red);}
   margin-bottom: 2.5em;
   box-shadow: var(--main-shadow);
   max-width: 1290px; margin-left:auto; margin-right:auto;
-  min-height: 340px;
+  min-height: 320px;
   overflow: hidden;
   position: relative;
 }
 .hero-content {
-  flex: 1 1 370px;
-  padding: 2.7em 2.1em 2.4em 2.8em;
+  flex: 1 1 320px;
+  padding: 2.3em 1.2em 2em 2.1em;
   z-index: 2;
 }
 .hero-title {
-  font-size: 2.9em; 
+  font-size: 2.2em;
   color: var(--main-red);
-  font-family: var(--font-hero);
   font-weight: 800;
-  margin-bottom: 0.2em;
+  margin-bottom: 0.15em;
   letter-spacing: 0.01em;
   line-height: 1.07;
   text-shadow: 0 2px 8px #e0000020, 0 1px 0 #fff2;
 }
 .hero-desc {
   color: var(--main-grey);
-  font-size: 1.23em;
-  margin-bottom: 2.1em;
+  font-size: 1.13em;
+  margin-bottom: 2em;
   font-weight: 600;
   font-family: var(--font-main);
-  max-width: 540px;
+  max-width: 510px;
   line-height: 1.35;
 }
 .hero .btn-main {
@@ -130,16 +189,18 @@ nav a.active { background: var(--main-yellow); color: var(--main-red);}
   color: #fff;
   border: none;
   border-radius: 2.4em;
-  padding: 1.08em 2.8em;
-  font-size: 1.19em;
+  padding: 1.08em 2em;
+  font-size: 1.1em;
   font-weight: 900;
   cursor: pointer;
   box-shadow: 0 2px 18px 0 #ea2a2a11;
   margin-bottom: 1.2em;
-  margin-top: 1.3em;
-  transition: background .14s, transform .14s, box-shadow .14s;
+  margin-top: 1.1em;
+  transition: background 0.14s, transform 0.14s, box-shadow 0.14s;
   letter-spacing: 0.02em;
   text-shadow: 0 2px 8px #ea2a2a33, 0 1px 0 #fff2;
+  min-height: 44px;
+  min-width: 44px;
 }
 .hero .btn-main:hover, .btn-main:focus {
   background: linear-gradient(90deg,var(--main-yellow) 0%,var(--main-green) 100%);
@@ -148,66 +209,83 @@ nav a.active { background: var(--main-yellow); color: var(--main-red);}
   box-shadow: 0 8px 22px #27ae6040;
 }
 .hero-img {
-  min-width: 340px; max-width: 500px; width: 33vw;
+  min-width: 220px; max-width: 420px; width: 35vw;
   aspect-ratio: 4/3; object-fit: cover;
   border-radius: 0 0 var(--radius) 0;
   margin-left: 0.6em;
   box-shadow: 0 2px 16px #ea2a2a11;
-  border: 5px solid var(--main-yellow);
+  border: 4px solid var(--main-yellow);
   z-index: 1;
 }
-@media (max-width: 1200px) {.hero-content{padding:1.1em 1em 1.6em 1em;}}
-@media (max-width: 970px) {.hero{flex-direction:column;min-height:220px;}.hero-img{margin:2em 0 0 0;max-width:97vw;}}
-@media (max-width: 700px) {.logo{font-size:1.2em;}.hero-title{font-size:1.35em;}}
+/* Sections, Headings */
 section {
   max-width: 1280px;
-  margin: 0 auto 2.7em auto;
+  margin: 0 auto 2.5em auto;
   padding: 2.3em 1.15em 2.1em 1.15em;
   background: #fff;
   border-radius: var(--radius);
   box-shadow: var(--main-shadow);
   position: relative;
 }
-h2 { color: var(--main-red); font-size: 2.15em; font-family:var(--font-hero); font-weight: 800; margin-bottom: 1.2em; letter-spacing: 0.03em;}
-h3 { color: var(--main-accent); font-size:1.19em;}
+h2 { color: var(--main-red); font-size: 1.45em; font-family:var(--font-main); font-weight: 800; margin-bottom: 1.15em; letter-spacing: 0.03em;}
+h3 { color: var(--main-accent); font-size:1.17em; margin-top:1.3em;}
+/* Služby */
 .services .service-items {
-  display: flex; flex-wrap: wrap; gap: 2.4em; margin-bottom: 1.3em; justify-content: center;
+  display: flex; flex-wrap: wrap; gap: 1.4em; margin-bottom: 1.1em; justify-content: center;
 }
 .service-item {
-  flex: 1 1 210px; max-width: 285px;
+  flex: 1 1 170px; max-width: 250px;
   background: linear-gradient(120deg,#fff,#fff7e6 95%);
   border-radius: var(--radius);
   box-shadow: 0 2px 12px 0 #ea2a2a15;
-  padding: 2.0em 1.2em 1.45em 1.2em;
+  padding: 1.5em 0.7em 1.2em 0.7em;
   text-align: center;
-  transition: box-shadow .18s, transform .18s, border-color .18s, background .16s;
+  transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s, background 0.16s;
   opacity: 1; border-bottom: 6px solid var(--main-accent);
   cursor: pointer;
-  margin-bottom: 0.8em;
-  font-family: var(--font-card);
+  margin-bottom: 0.6em;
+  font-family: var(--font-main);
 }
 .service-item .icon {
-  font-size: 2.9em; margin-bottom: 0.48em; display: block;
+  font-size: 2.2em; margin-bottom: 0.38em; display: block;
   filter: drop-shadow(0 4px 12px #ffd60070);
 }
-.service-item:hover {
-  transform: scale(1.09) translateY(-8px) rotate(-2deg);
+.service-item:hover, .service-item:focus {
+  transform: scale(1.07) translateY(-5px) rotate(-1deg);
   background: linear-gradient(100deg,#fffbe6 50%,#fff 100%);
-  box-shadow: 0 13px 32px 0 #ffd60024;
+  box-shadow: 0 8px 24px 0 #ffd60024;
   border-bottom: 7px solid var(--main-green);
+  outline: none;
 }
-.service-item h3 { color: var(--main-red); margin-bottom: 0.11em; font-size:1.19em;}
+.service-item h3 { color: var(--main-red); margin-bottom: 0.11em; font-size:1.13em;}
+/* Galéria */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 20px 0;
+  box-shadow: none;
+  background: none;
+  margin-bottom: 1.5em;
+}
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+/* Menu */
 .menu-table {
   width: 100%; border-collapse: collapse;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.2em;
   background: #fff; border-radius: var(--radius);
   overflow: hidden;
-  font-size: 1.09em;
+  font-size: 1.03em;
   box-shadow: 0 1px 12px #ea2a2a10;
-  font-family: var(--font-menu);
+  font-family: var(--font-main);
 }
 .menu-table th, .menu-table td {
-  padding: 1.05em 0.8em;
+  padding: 0.85em 0.6em;
   border-bottom: 1px solid #ececec;
 }
 .menu-table th {
@@ -215,88 +293,135 @@ h3 { color: var(--main-accent); font-size:1.19em;}
   color: #fff;
   font-weight: 900;
   letter-spacing: 0.02em;
-  font-size: 1.12em;
+  font-size: 1.07em;
 }
 .menu-table tr:last-child td { border-bottom: none;}
 .menu-table td { color: var(--main-dark);}
-.gallery { background: none; box-shadow: none; margin-bottom: 1.7em;}
-.gallery h2 { color: var(--main-red); margin-bottom: 1.2em;}
-.gallery-grid {
-  display: grid; gap: 1.6em; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); margin: 1.7em 0 0 0;
+.menu-section { margin-bottom: 2.5em; }
+.menu-section h3 {
+  margin-top: 2em;
+  margin-bottom: 0.4em;
+  font-size: 1.19em;
+  color: var(--main-red);
+  font-family: var(--font-main);
+  font-weight: 800;
+  letter-spacing: 0.01em;
 }
-.gallery-grid img {
-  width: 100%; aspect-ratio: 4/3; object-fit: cover;
-  border-radius: var(--radius);
-  box-shadow: 0 1.5px 14px #ea2a2a22;
-  border: 2.5px solid #ffe6e6;
-  transition: transform .18s, box-shadow .13s;
-  cursor: pointer;
-  background: #fffbe6;
-}
-.gallery-grid img:hover { 
-  transform: scale(1.05) rotate(-2deg);
-  box-shadow: 0 7px 28px #ffd60042;
-  border-color: var(--main-yellow);
-}
+/* Footer */
 footer {
   background: var(--main-red);
   color: #fff;
-  padding: 2.2em 1em 1em 1em;
-  margin-top: 2.5em;
+  padding: 2em 1em 1em 1em;
+  margin-top: 2em;
   box-shadow: 0 -2px 6px 0 #ffd60012;
+  font-size: 0.97em;
 }
 .footer-content {
   max-width: 1100px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 2em;
+  gap: 1.3em;
   align-items: center;
   justify-content: space-between;
 }
 .footer-links a, .footer-social a {
-  margin-right: 1.2em;
+  margin-right: 0.9em;
   color: #fff;
   text-decoration: none;
-  transition: color .17s;
+  transition: color 0.17s;
   font-weight: 700;
   font-family: var(--font-main);
+  min-height: 40px;
+  min-width: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  user-select: none;
 }
-.footer-links a:hover, .footer-social a:hover { color: var(--main-yellow);}
+.footer-links a:hover, .footer-social a:hover, .footer-links a:focus, .footer-social a:focus { color: var(--main-yellow); outline:none;}
 .footer-copy {
   flex: 1 1 100%;
   margin-top: 1em;
-  font-size: 0.97em;
   text-align: center;
   color: #f7e8e8;
 }
-@media (max-width: 1050px) {
-  .services .service-items { flex-direction:column; gap:1em;}
-  .gallery-grid { grid-template-columns: 1fr;}
-  section {max-width:98vw;}
-  .hero-img { max-width:97vw; }
+/* Formulár */
+form {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  box-sizing: border-box;
 }
-@media (max-width: 650px) {
-  .logo {font-size:1.09em;}
-  .hero-title { font-size:1.09em;}
-  .hero-img { min-width:0; width: 90vw; }
-  section {padding:1em 0.3em;}
+form input,
+form textarea,
+form button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+/* Media Queries */
+@media (max-width: 1024px) {
+  .hero-content {padding:1.2em 0.5em;}
+  .hero-img {max-width: 90vw;}
+  section {max-width:96vw;}
+}
+@media (max-width: 900px) {
+  .topbar {flex-direction:column;gap:0.7em;align-items:flex-start;}
+  .logo{margin-bottom:0.5em;}
+}
+@media (max-width: 768px) {
+  .hero {flex-direction:column; padding: 1em 0.5em;}
+  .hero-img {width: 90vw; min-width: 0; margin-top: 1em; border-radius: var(--radius); margin-left: 0; max-width: 100%;}
+  section {padding: 1.1em 0.3em; border-radius: 1em;}
+  .footer-content {flex-direction:column;gap:0.8em;}
+  .services .service-items {flex-direction:column;}
+}
+@media (max-width: 768px) {
+  body { font-size: 14px; }
+}
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+  form {
+    padding: 10px;
+  }
+  form input,
+  form textarea,
+  form button {
+    font-size: 14px;
+    padding: 10px;
+  }
+  a, button {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+  body { font-size: 12px; }
 }
   </style>
 </head>
 <body>
   <header>
     <div class="topbar">
-      <div class="logo">
-        Bowling Čaňa & Pizza
-      </div>
+      <div class="logo">Bowling Čaňa &amp; Pizza</div>
       <nav>
-        <a href="#onas">O nás</a>
-        <a href="#sluzby">Ponuka</a>
-        <a href="#menu">Menu</a>
-        <a href="#galeria">Galéria</a>
-        <a href="#rezervacia">Objednávka</a>
-        <a href="#kontakt">Kontakt</a>
+        <button class="hamburger" aria-label="Zobraziť menu">☰</button>
+        <ul>
+          <li><a href="#onas">O nás</a></li>
+          <li><a href="#sluzby">Ponuka</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#galeria">Galéria</a></li>
+          <li><a href="#rezervacia">Objednávka</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
       </nav>
     </div>
   </header>
@@ -307,7 +432,7 @@ footer {
       <div class="hero-desc">Zaži energiu, zábavu a chute v Bowling Čaňa! Čaká ťa moderný bowling, výborná pizza, drinky a atmosféra, na ktorú nezabudneš. Oslavy, turnaje, rodinné večery či firemné akcie? U nás máš všetko pod jednou strechou!</div>
       <a href="#rezervacia" class="btn-main">Objednať pizzu / Rezervovať bowling</a>
     </div>
-    <img class="hero-img" src="https://www.bowlingcana.sk/wp-content/uploads/2020/03/bowling3-1024x683.jpg" alt="Bowling a pizza v Čani" />
+    <img class="hero-img" src="img/bowling3.webp" alt="Bowling a pizza v Čani" />
   </div>
 
   <section id="onas">
@@ -318,14 +443,14 @@ footer {
   <section class="services" id="sluzby">
     <h2>Naša ponuka</h2>
     <div class="service-items">
-      <div class="service-item"><span class="icon">🍕</span><h3>Pizzeria</h3><p>Chrumkavá pizza, cestoviny, šaláty a dezerty – vždy čerstvé a s úsmevom.</p></div>
-      <div class="service-item"><span class="icon">🎳</span><h3>Bowling</h3><p>2 moderné bowlingové dráhy, svetlá, hudba a súťaživá atmosféra pre každého.</p></div>
-      <div class="service-item"><span class="icon">🍹</span><h3>Bar & nápoje</h3><p>Osviež sa: pivo, víno, limonády, káva aj miešané kokteily v našom bare.</p></div>
-      <div class="service-item"><span class="icon">🎉</span><h3>Oslavy & akcie</h3><p>Detské oslavy, firemné večierky, turnaje – zážitok na mieru podľa tvojich predstáv.</p></div>
+      <div class="service-item" tabindex="0"><span class="icon">🍕</span><h3>Pizzeria</h3><p>Chrumkavá pizza, cestoviny, šaláty a dezerty – vždy čerstvé a s úsmevom.</p></div>
+      <div class="service-item" tabindex="0"><span class="icon">🎳</span><h3>Bowling</h3><p>2 moderné bowlingové dráhy, svetlá, hudba a súťaživá atmosféra pre každého.</p></div>
+      <div class="service-item" tabindex="0"><span class="icon">🍹</span><h3>Bar & nápoje</h3><p>Osviež sa: pivo, víno, limonády, káva aj miešané kokteily v našom bare.</p></div>
+      <div class="service-item" tabindex="0"><span class="icon">🎉</span><h3>Oslavy & akcie</h3><p>Detské oslavy, firemné večierky, turnaje – zážitok na mieru podľa tvojich predstáv.</p></div>
     </div>
   </section>
 
-  <section id="menu">
+  <section id="menu" class="menu-section">
     <h2>Pizza menu</h2>
     <table class="menu-table">
       <thead>
@@ -346,7 +471,8 @@ footer {
         <tr><td>Tuniaková</td><td>paradajková omáčka, syr, tuniak, cibuľa</td><td>6.80 €</td></tr>
       </tbody>
     </table>
-    <h2>Nápoje</h2>
+
+    <h3>Nápoje</h3>
     <table class="menu-table">
       <thead>
         <tr>
@@ -365,49 +491,118 @@ footer {
         <tr><td>Minerálka 0,5l (plus záloha za obal)</td><td>1.15 €</td></tr>
       </tbody>
     </table>
+
+    <h3>Pivo</h3>
+    <table class="menu-table">
+      <thead>
+        <tr>
+          <th>Názov</th>
+          <th>Cena</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Staropramen 0,5l plech (plus záloha za obal)</td><td>1.25 €</td></tr>
+        <tr><td>Pilsner Urquell 0,5 l - fľašový (plus záloha za obal)</td><td>1.65 €</td></tr>
+        <tr><td>Staropramen 10° čapovaný 1,5l (plus záloha za obal)</td><td>4.05 €</td></tr>
+        <tr><td>Steiger radler (tmavý, svetlý) (plus záloha za obal)</td><td>1.25 €</td></tr>
+        <tr><td>Staropramen 12° nefilter čapovaný 1,5l (plus záloha za obal)</td><td>4.65 €</td></tr>
+        <tr><td>Pilsner Urquell čapovaný 1,5l (plus záloha za obal)</td><td>5.55 €</td></tr>
+        <tr><td>Pilsner Urquell 0,5l plech (plus záloha za obal)</td><td>1.95 €</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Vína</h3>
+    <table class="menu-table">
+      <thead>
+        <tr>
+          <th>Názov</th>
+          <th>Cena</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Matyšák Frankovka Modrá - červené 1,0l</td><td>7.00 €</td></tr>
+        <tr><td>Matyšák Rizling Vlašský - biele 1,0l</td><td>7.00 €</td></tr>
+        <tr><td>Hubert DeLuxe šampanské 0,75l</td><td>8.00 €</td></tr>
+        <tr><td>Movino - biele 0,75l</td><td>8.00 €</td></tr>
+        <tr><td>Movino - červené 0,75l</td><td>8.00 €</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Pochutiny</h3>
+    <table class="menu-table">
+      <thead>
+        <tr>
+          <th>Názov</th>
+          <th>Cena</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Horalka 45g</td><td>0.70 €</td></tr>
+        <tr><td>Mila 45g</td><td>0.80 €</td></tr>
+        <tr><td>Lay´s chips 0,65g</td><td>1.40 €</td></tr>
+        <tr><td>Mentos 38g</td><td>0.80 €</td></tr>
+        <tr><td>Tyčinky DRU 45g</td><td>0.60 €</td></tr>
+        <tr><td>Arašidy 100g</td><td>0.80 €</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Alkoholické nápoje</h3>
+    <table class="menu-table">
+      <thead>
+        <tr>
+          <th>Názov</th>
+          <th>Cena</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Vodka Jemná 0,5l</td><td>9.00 €</td></tr>
+        <tr><td>Captain Morgan Sp. 0,7l</td><td>18.00 €</td></tr>
+        <tr><td>Vodka Nicolaus 0,7l</td><td>13.00 €</td></tr>
+        <tr><td>Captain Morgan Sp. 1l</td><td>22.00 €</td></tr>
+        <tr><td>Metaxa 5* 0,7l</td><td>17.00 €</td></tr>
+        <tr><td>R tuzemský 0,5l</td><td>9.00 €</td></tr>
+        <tr><td>Spišská Borovička 0,7l</td><td>13.00 €</td></tr>
+        <tr><td>Slovenská Borovička 0,5l</td><td>9.00 €</td></tr>
+        <tr><td>Vodka Jemná 1l</td><td>14.00 €</td></tr>
+        <tr><td>R tuzemský 1l</td><td>14.00 €</td></tr>
+        <tr><td>Jägermeister 0,7l</td><td>18.00 €</td></tr>
+        <tr><td>Jägermeister 1l</td><td>22.00 €</td></tr>
+        <tr><td>Becherovka 0,7l</td><td>18.00 €</td></tr>
+        <tr><td>Slovenská Borovička 1l</td><td>14.00 €</td></tr>
+        <tr><td>Vodka Finlandia 1l</td><td>22.00 €</td></tr>
+        <tr><td>Kopaničiarska Slivovica 1l</td><td>14.00 €</td></tr>
+        <tr><td>Kopaničiarska Hruška 1l</td><td>14.00 €</td></tr>
+        <tr><td>Fernet Stock 1l</td><td>18.00 €</td></tr>
+        <tr><td>Fernet Stock Citrus 1l</td><td>18.00 €</td></tr>
+        <tr><td>Jameson 0,7l</td><td>21.00 €</td></tr>
+        <tr><td>Jameson 1l</td><td>27.00 €</td></tr>
+        <tr><td>Vodka Nicolaus 1l</td><td>17.00 €</td></tr>
+        <tr><td>Jack Daniel´s 0,5l</td><td>20.00 €</td></tr>
+      </tbody>
+    </table>
   </section>
 
   <section class="gallery" id="galeria">
     <h2>Galéria</h2>
-    <div class="gallery-grid">
-      <!-- Fotky prevzaté z https://www.bowlingcana.sk/fotogaleria.html -->
-      <img src="https://www.bowlingcana.sk/wp-content/uploads/2020/03/bowling1-1024x683.jpg" alt="Bowling dráha" />
-      <img src="https://www.bowlingcana.sk/wp-content/uploads/2020/03/bowling2-1024x683.jpg" alt="Bowling a sedenie" />
-      <img src="https://www.bowlingcana.sk/wp-content/uploads/2020/03/bowling3-1024x683.jpg" alt="Bar a interiér" />
-      <img src="https://www.bowlingcana.sk/wp-content/uploads/2020/03/bowling4-1024x683.jpg" alt="Pohľad na dráhu" />
-      <img src="https://www.bowlingcana.sk/wp-content/uploads/2020/03/bowling5-1024x683.jpg" alt="Priestory podniku" />
-      <img src="https://www.bowlingcana.sk/wp-content/uploads/2020/03/bowling6-1024x683.jpg" alt="Bowling oslava" />
-      <img src="https://www.bowlingcana.sk/wp-content/uploads/2020/03/pizza1-1024x683.jpg" alt="Pizza v Bowling Čaňa" />
-      <img src="https://www.bowlingcana.sk/wp-content/uploads/2020/03/pizza2-1024x683.jpg" alt="Pizza detail" />
-      <img src="https://www.bowlingcana.sk/wp-content/uploads/2020/03/detska-oslava-1024x683.jpg" alt="Detská oslava" />
+    <div class="gallery">
+      <img src="img/bowling1.webp" alt="Bowling dráha" />
+      <img src="img/bowling2.webp" alt="Bowling a sedenie" />
+      <img src="img/bowling3.webp" alt="Bar a interiér" />
+      <img src="img/bowling4.webp" alt="Pohľad na dráhu" />
+      <img src="img/bowling5.webp" alt="Priestory podniku" />
+      <img src="img/bowling6.webp" alt="Bowling oslava" />
+      <img src="img/pizza1.webp" alt="Pizza v Bowling Čaňa" />
+      <img src="img/pizza2.webp" alt="Pizza detail" />
+      <img src="img/detska-oslava.webp" alt="Detská oslava" />
     </div>
   </section>
 
-  <section class="order-form-section" id="rezervacia" style="max-width:650px;margin:2.5em auto 3em auto;background:#fff;border-radius:2.1em;box-shadow:0 2px 18px #ea2a2a13;padding:2.2em 1.3em;">
-    <h2 style="color:var(--main-red);font-size:1.53em;">Objednaj si pizzu alebo rezervuj bowling</h2>
-    <form id="orderForm" autocomplete="off">
-      <label for="order-name">Meno a priezvisko</label>
-      <input type="text" id="order-name" name="name" placeholder="Vaše meno" required style="width:100%;padding:0.85em;border-radius:0.72em;border:1.5px solid #22b5e2;background:#f3fafd;margin-bottom:1em;font-size:1em;"/>
-      <div id="order-items">
-        <label>Položky objednávky</label>
-      </div>
-      <button type="submit" class="btn-main" style="margin-top:1em;">Odoslať objednávku</button>
-      <div id="order-success" style="color:var(--main-green);font-weight:700;margin-top:1em;min-height:2em;"></div>
-      <div id="order-error" style="color:var(--main-red);font-weight:700;margin-top:1em;min-height:2em;"></div>
-    </form>
-  </section>
-
-  <section style="max-width:650px;margin:2em auto 3em auto;background:#fff;border-radius:2.1em;box-shadow:0 2px 16px #ea2a2a11;padding:2.25em 1.2em;">
-    <h3>Posledné objednávky</h3>
-    <ul id="order-list" style="list-style:none;padding-left:0;margin:0;"></ul>
-  </section>
-
-  <section style="max-width:600px;margin:2em auto 3em auto;background:#fff;border-radius:2.1em;box-shadow:0 2px 18px #ea2a2a13;padding:2em 1em;">
-    <h2 id="kontakt">Kontakt</h2>
+  <section id="kontakt" style="max-width:600px;margin:2em auto 3em auto;background:#fff;border-radius:2.1em;box-shadow:0 2px 18px #ea2a2a13;padding:2em 1em;">
+    <h2>Kontakt</h2>
     <div>
-      <b>Adresa:</b> Osloboditeľov 18, 044 14 Čaňa<br/>
-      <b>Telefón:</b> <a href="tel:+421915666066" style="color:var(--main-accent);text-decoration:none;">0915 666 066</a><br/>
-      <b>Email:</b> <a href="mailto:info@bowlingcana.sk" style="color:var(--main-accent);text-decoration:none;">info@bowlingcana.sk</a><br/>
+      <b>Adresa:</b> Osloboditeľov 18, 044 14 Čaňa<br>
+      <b>Telefón:</b> <a href="tel:+421915666066" style="color:var(--main-accent);text-decoration:none;">0915 666 066</a><br>
+      <b>Email:</b> <a href="mailto:info@bowlingcana.sk" style="color:var(--main-accent);text-decoration:none;">info@bowlingcana.sk</a><br>
       <b>Otváracie hodiny:</b>
       <ul>
         <li>Pondelok – Štvrtok: 15:00 – 22:00</li>
@@ -442,93 +637,11 @@ footer {
     </div>
   </footer>
   <script>
-// Objednávkový form je len vizuálny na GitHub Pages (statický web)
-// Ak chceš, môžeš túto časť odstrániť alebo upraviť na emailový odosielací formulár
-const orderForm = document.getElementById('orderForm');
-const orderItemsDiv = document.getElementById('order-items');
-const orderSuccess = document.getElementById('order-success');
-const orderError = document.getElementById('order-error');
-const orderList = document.getElementById('order-list');
-
-function createItemRow(name = "", qty = 1) {
-  const row = document.createElement('div');
-  row.className = "item-row";
-  row.style.display = "flex";
-  row.style.gap = "1em";
-  row.style.marginBottom = "0.6em";
-  row.innerHTML = `
-    <input type="text" name="item" placeholder="Názov položky" required value="${name}" style="flex:2;min-width:80px;padding:0.7em;border-radius:0.5em;border:1.5px solid #22b5e2;background:#f3fafd;"/>
-    <input type="number" name="qty" placeholder="ks" min="1" value="${qty}" required style="flex:1;max-width:70px;padding:0.7em;border-radius:0.5em;border:1.5px solid #22b5e2;background:#f3fafd;"/>
-    <button type="button" class="add-item-btn" title="Pridať ďalšiu položku" style="background:var(--main-accent);color:#fff;border-radius:50%;font-size:1em;width:2em;height:2em;border:none;margin-left:0.2em;">+</button>
-    <button type="button" class="remove-item-btn" title="Odstrániť položku" style="background:var(--main-red);color:#fff;border-radius:50%;font-size:1em;width:2em;height:2em;border:none;display:none;margin-left:0.2em;">-</button>
-  `;
-  row.querySelector('.add-item-btn').onclick = () => {
-    const newRow = createItemRow();
-    orderItemsDiv.appendChild(newRow);
-    updateRemoveBtns();
-  };
-  row.querySelector('.remove-item-btn').onclick = () => {
-    row.remove();
-    updateRemoveBtns();
-  };
-  return row;
-}
-function updateRemoveBtns() {
-  const rows = Array.from(orderItemsDiv.querySelectorAll('.item-row'));
-  rows.forEach(row => {
-    const removeBtn = row.querySelector('.remove-item-btn');
-    if (rows.length > 1) removeBtn.style.display = "";
-    else removeBtn.style.display = "none";
-  });
-}
-orderItemsDiv.innerHTML = "";
-orderItemsDiv.appendChild(createItemRow());
-updateRemoveBtns();
-
-orderForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  orderSuccess.textContent = "";
-  orderError.textContent = "";
-  const name = orderForm.querySelector('[name="name"]').value.trim();
-  const items = [];
-  orderForm.querySelectorAll('.item-row').forEach(row => {
-    const item = row.querySelector('[name="item"]').value.trim();
-    const qty = parseInt(row.querySelector('[name="qty"]').value || "1", 10);
-    if (item && qty > 0) items.push({ name: item, qty });
-  });
-  if (!name || items.length === 0) {
-    orderError.textContent = "Vyplňte meno a aspoň jednu položku.";
-    return;
-  }
-  orderSuccess.textContent = "Objednávka bola (testovacia, len vizuál) odoslaná!";
-  orderError.textContent = "";
-  orderForm.reset();
-  orderItemsDiv.innerHTML = "";
-  orderItemsDiv.appendChild(createItemRow());
-  updateRemoveBtns();
-  setTimeout(() => orderSuccess.textContent = "", 5000);
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('nav ul');
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
 });
-
-// Posledné objednávky – iba demo (statický zoznam)
-function refreshOrdersList() {
-  orderList.innerHTML = `
-    <li style="padding:1em;margin-bottom:1em;background:#f7fafd;border-left:5px solid var(--main-green);border-radius:0.8em;">
-      <b>Jana Nováková</b> <span style="font-size:0.95em;color:var(--main-grey);">dnes 17:42</span>
-      <br>
-      <span>2× Hawai, 1× Pepsi</span>
-      <br>
-      <span style="font-size:0.97em;color:var(--main-green);">Čaká na spracovanie</span>
-    </li>
-    <li style="padding:1em;margin-bottom:1em;background:#f7fafd;border-left:5px solid var(--main-yellow);border-radius:0.8em;">
-      <b>Peter Kováč</b> <span style="font-size:0.95em;color:var(--main-grey);">dnes 16:12</span>
-      <br>
-      <span>1× Quatro formaggi, 2× Kofola</span>
-      <br>
-      <span style="font-size:0.97em;color:var(--main-yellow);">Vybavené</span>
-    </li>
-  `;
-}
-refreshOrdersList();
   </script>
 </body>
 </html>
