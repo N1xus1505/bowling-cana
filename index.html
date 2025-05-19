@@ -8,8 +8,12 @@
   <meta name="keywords" content="bowling, pizza, Čaňa, rezervácia, rodina, pivo, akcie, zábava, reštaurácia">
   <meta name="author" content="Bowling Čaňa">
   <link rel="icon" href="https://cdn.pixabay.com/photo/2013/07/13/12/37/bowling-146862_1280.png">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Importy fontov a ikon -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CSS -->
   <style>
     :root {
       --main-red: #ea2a2a;
@@ -18,99 +22,122 @@
       --main-white: #fff;
       --main-shadow: 0 6px 32px 0 #ea2a2a13, 0 1.5px 10px 0 #fd9c3a14;
       --radius: 2em;
-      --font-main: 'Roboto', Arial, sans-serif;
+      --font-main: 'Montserrat', Arial, sans-serif;
       --cta-gradient: linear-gradient(90deg,#fd9c3a 10%, #ea2a2a 100%);
       --cta-gradient-alt: linear-gradient(90deg,#ea2a2a 0%,#fd9c3a 100%);
-      --cart-width: 340px;
-      --input-bg: #fffcf8;
     }
-    html, body {
-      margin: 0; padding: 0;
+
+    body {
+      margin: 0;
+      padding: 0;
       font-family: var(--font-main);
       background: var(--main-bg);
       color: #2a1c1c;
       font-size: 1.1rem;
       scroll-behavior: smooth;
     }
-    *, *::before, *::after { box-sizing: border-box; }
-    a { color: var(--main-orange); text-decoration: none; transition: color .2s;}
-    a:hover, a:focus { text-decoration: underline; color: var(--main-red);}
+
     header {
       background: linear-gradient(90deg, var(--main-red) 70%, var(--main-orange) 100%);
       color: #fff;
-      position: sticky; top:0; z-index: 100;
+      position: sticky;
+      top: 0;
+      z-index: 100;
       box-shadow: var(--main-shadow);
+      font-family: 'Montserrat', sans-serif;
+      animation: slideDown 0.8s ease-out; /* Animácia */
+      padding: 0.5em 0; /* Zmenšená veľkosť */
     }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
     .nav-container {
       max-width: 1200px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.8em 1em 0.6em 1em;
+      padding: 0.6em 1em; /* Zmenšený padding */
       flex-wrap: wrap;
     }
+
     .logo {
-      font-size: 1.9em;
-      font-weight: 900;
+      font-size: 1.5em;
+      font-weight: 700;
       letter-spacing: 0.03em;
       color: #fff;
-      text-shadow: 0 2px 8px #c6282820;
-      user-select: none;
       display: flex;
       align-items: center;
       gap: 0.4em;
     }
-    .logo .fa-bowling-ball { font-size: 1.2em; color: #ffd600;}
+
+    .logo .fa-bowling-ball {
+      font-size: 1.2em;
+      color: #ffd600;
+    }
+
     .header-contact {
-      font-size: 1em;
+      font-size: 0.9em;
       display: flex;
-      gap: 1.5em;
+      gap: 1em;
       align-items: center;
       flex-wrap: wrap;
     }
+
     .header-contact span, 
     .header-contact a {
       color: #fffbe6;
-      font-size: 0.98em;
+      font-size: 0.9em;
       font-weight: 500;
-      margin-right: 1em;
       text-decoration: none;
       transition: color .2s;
     }
+
     .header-contact .fa-facebook, .header-contact .fa-instagram {
-      font-size: 1.23em;
-      margin-right: 0.2em;
-      vertical-align: middle;
+      font-size: 1.2em;
       color: #fffbe6;
       transition: color 0.16s;
     }
+
     .header-contact .fa-facebook:hover, .header-contact .fa-instagram:hover {
       color: #ffd600;
     }
+
     nav ul {
       list-style: none;
       display: flex;
-      gap: 30px;
+      gap: 20px;
       padding: 0; margin: 0;
       align-items: center;
     }
+
     nav ul li a {
       color: #fff;
-      font-weight: 700;
-      font-size: 1.08em;
+      font-weight: 600;
+      font-size: 0.95em;
       border-radius: 2em;
-      padding: 8px 16px;
+      padding: 5px 14px;
       transition: background 0.12s, color 0.12s;
       position: relative;
       display: block;
-      outline: none;
+      text-decoration: none;
     }
+
     nav ul li a.active, nav ul li a:hover, nav ul li a:focus {
       background: #fff;
       color: var(--main-red);
       text-decoration: underline;
     }
+
     .hamburger {
       display: none;
       background: none;
@@ -119,1071 +146,78 @@
       font-size: 2em;
       cursor: pointer;
     }
-    @media (max-width: 1050px) {
-      .header-contact { flex-direction: column; gap: 0.3em;}
-      .nav-container {gap:1.2em;}
-    }
+
     @media (max-width: 900px) {
-      .nav-container { flex-direction: column; align-items: flex-start; gap:0.7em;}
-      .logo { margin-bottom: 0.25em; }
-      .header-contact {margin-bottom: 0.5em;}
-    }
-    @media (max-width: 650px) {
-      nav ul { display: none; flex-direction: column; gap: 10px; background: #fff; border-radius: 1em; position: absolute; top: 60px; right: 18px; box-shadow: 0 2px 24px #ea2a2a20; z-index: 200; padding: 16px 0;}
-      nav ul.show { display: flex; }
-      nav ul li a { color: var(--main-red); font-size: 1.1em; background: none; }
-      .hamburger { display: block; position: absolute; right: 10px; top: 13px; }
-      .nav-container { position: relative; }
-    }
-    .hero {
-      display: flex; flex-wrap:wrap;
-      align-items: center; justify-content: space-between;
-      background: linear-gradient(90deg,#fff 60%,#ffe3d0 100%);
-      border-radius: 0 0 var(--radius) var(--radius);
-      margin-bottom: 2.5em;
-      box-shadow: var(--main-shadow);
-      max-width: 1100px; margin-left:auto; margin-right:auto;
-      min-height: 180px;
-      position: relative;
-    }
-    .hero-content {
-      flex: 1 1 400px;
-      padding: 2.3em 1.2em 2em 2.1em;
-      z-index: 2;
-      text-align: left;
-      max-width: 600px;
-    }
-    .hero-title {
-      font-size: 2.1em;
-      color: var(--main-red);
-      font-weight: 900;
-      margin-bottom: 0.22em;
-      letter-spacing: 0.01em;
-      line-height: 1.1;
-      display: flex;
-      align-items: center;
-      gap: 0.25em;
-    }
-    .hero-title .fa-bowling-ball { color: #fd9c3a; font-size: 1.2em; }
-    .hero-desc {
-      color: #5a4a43;
-      font-size: 1.11em;
-      margin-bottom: 2em;
-      font-weight: 500;
-      line-height: 1.5;
-      max-width: 510px;
-    }
-    .hero-cta {
-      display: flex; flex-wrap: wrap; gap: 1em; align-items: center;
-      margin-bottom: 0.8em;
-    }
-    .btn-cta {
-      display: inline-block;
-      font-family: inherit;
-      background: var(--cta-gradient);
-      color: #fff;
-      border: none;
-      border-radius: 2em;
-      padding: 1em 2.1em;
-      font-size: 1.13em;
-      font-weight: 900;
-      cursor: pointer;
-      letter-spacing: 0.02em;
-      text-shadow: 0 2px 8px #ea2a2a33;
-      transition: background 0.18s, color 0.18s, transform 0.13s, box-shadow 0.18s;
-      box-shadow: 0 2px 18px #ea2a2a10;
-      min-height: 44px;
-      min-width: 44px;
-    }
-    .btn-cta.alt { background: var(--cta-gradient-alt);}
-    .btn-cta:hover, .btn-cta:focus {
-      background: linear-gradient(90deg,#ea2a2a 0%,#fd9c3a 80%);
-      color: #fffbe6;
-      box-shadow: 0 6px 22px #ea2a2a1a;
-      transform: scale(1.07) translateY(-2px);
-    }
-    @media (max-width: 900px) {
-      .hero {flex-direction:column;align-items:stretch;}
-      .hero-content {padding: 1.5em 0.6em;}
-    }
-    @media (max-width: 500px) {
-      .hero-title {font-size: 1.35em;}
-      .hero-content {padding: 0.8em 0.1em;}
-    }
-    .about-section {
-      max-width: 900px;
-      margin: 3em auto 2.5em auto;
-      padding: 2.5em 2em;
-      border-radius: var(--radius);
-      background: linear-gradient(120deg, #fff8f3 70%, #f8fbff 100%);
-      box-shadow: var(--main-shadow);
-    }
-    .about-title {
-      text-align: center;
-      font-size: 2.1em;
-      font-weight: 900;
-      margin-bottom: 1.4em;
-      color: var(--main-red);
-      font-family: var(--font-main);
-    }
-    .about-container {
-      display: flex;
-      gap: 2.5em;
-      align-items: flex-start;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .about-text {
-      flex: 1 1 340px;
-      min-width: 270px;
-      max-width: 100%;
-      font-family: var(--font-main);
-      font-size: 1.13em;
-      color: #181818;
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-      padding: 0.4em 0.2em 0.4em 0.3em;
-      text-align: left;
-    }
-    .about-text h3 {
-      margin-top: 1em;
-      margin-bottom: 0.3em;
-      font-size: 1.15em;
-      font-weight: 700;
-      color: var(--main-orange);
-      font-family: inherit;
-      display: flex;
-      align-items: center;
-      gap: 0.4em;
-    }
-    .about-text h3 .fa { color: var(--main-red);}
-    .about-text p {
-      margin-bottom: 0.7em;
-      margin-top: 0;
-      padding-left: 0.1em;
-    }
-    .about-image {display: none;}
-    @media (max-width: 800px) {
-      .about-container { flex-direction: column; gap: 1.7em; align-items: stretch;}
-    }
-    @media (max-width: 600px) {
-      .about-section {padding: 1em 0.5em; border-radius: 1em;}
-      .about-title {font-size: 1.5em; margin-bottom: 1em;}
-      .about-text {font-size: 1em; padding: 0.2em 0.1em 0.2em 0.1em;}
-      .about-text h3 { font-size: 1.05em;}
-    }
-    .services { background: linear-gradient(120deg, #fff6f0 60%, #fff 100%);}
-    .services .service-items {
-      display: flex; flex-wrap: wrap; gap: 1.4em; margin-bottom: 1.1em; justify-content: center;
-    }
-    .services h2 {
-      text-align: center;
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .service-item {
-      flex: 1 1 170px; max-width: 250px;
-      background: linear-gradient(120deg,#fff,#fff3e6 90%);
-      border-radius: var(--radius);
-      box-shadow: 0 2px 12px 0 #ea2a2a15;
-      padding: 1.2em 0.7em 1.2em 0.7em;
-      text-align: center;
-      transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s, background 0.16s;
-      opacity: 1; border-bottom: 6px solid var(--main-orange);
-      cursor: pointer;
-      margin-bottom: 0.6em;
-      font-family: inherit;
-      font-size: 1em;
-      min-width: 150px;
-    }
-    .service-item .icon {
-      font-size: 2.2em; margin-bottom: 0.38em; display: block;
-      filter: drop-shadow(0 4px 12px #ffd60070);
-      transition: transform 0.2s;
-    }
-    .service-item:hover .icon { transform: scale(1.16) rotate(-9deg);}
-    .service-item:hover, .service-item:focus {
-      transform: scale(1.07) translateY(-5px) rotate(-1deg);
-      background: linear-gradient(100deg,#fffbe6 50%,#fff 100%);
-      box-shadow: 0 8px 24px 0 #fd9c3a24;
-      border-bottom: 7px solid var(--main-red);
-      outline: none;
-    }
-    .service-item h3 { color: var(--main-red); margin-bottom: 0.11em; font-size:1.13em;}
-    .cta-group {
-      margin-top: 1.5em;
-      margin-bottom: 1em;
-      display: flex;
-      justify-content: center;
-      gap: 1.5em;
-      align-items: center;
-      width: 100%;
-      text-align: center;
-    }
-    .cta-group .btn-cta {
-      margin: 0;
-      min-width: 180px;
-      text-align: center;
-    }
-    #rezervacia {
-      background: linear-gradient(120deg, #fff8f3 60%, #f8fbff 100%);
-      box-shadow: var(--main-shadow);
-      border-radius: var(--radius);
-      max-width: 600px;
-      margin: 3em auto 3em auto;
-      padding: 2.5em 1em 2em 1em;
-      position: relative;
-    }
-    #rezervacia h2 {
-      color: var(--main-red);
-      text-align: center;
-      margin-bottom: 0.5em;
-      font-size: 2em;
-      font-weight: 900;
-      letter-spacing: 0.01em;
-      line-height: 1.1;
-    }
-    .rez-desc {
-      text-align: center;
-      color: #6a5050;
-      font-size: 1.14em;
-      font-weight: 500;
-      margin-bottom: 2em;
-      padding: 0 0.2em;
-      line-height: 1.5;
-      background: #fff3e6;
-      border-radius: 1.2em;
-      box-shadow: 0 1px 8px #fd9c3a10;
-      padding: 1.1em 1.2em;
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 90%;
-    }
-    #rezervacia form {
-      background: var(--input-bg);
-      border-radius: 1.3em;
-      padding: 2em 1.4em 1.2em 1.4em;
-      box-shadow: 0 2px 12px #fd9c3a10;
-      max-width: 430px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 0.3em;
-    }
-    .rez-form-row {
-      display: flex;
-      gap: 1em;
-    }
-    .rez-form-row > div { flex:1; }
-    #rezervacia form label {
-      font-weight: 700;
-      color: var(--main-red);
-      margin-bottom: 4px;
-      margin-top: 10px;
-      display: block;
-      font-size: 1.05em;
-      letter-spacing: 0.01em;
-    }
-    #rezervacia form input, #rezervacia form textarea {
-      border: 1.6px solid #fd9c3a77;
-      margin-bottom: 10px;
-      border-radius: 1.1em;
-      background: #fff;
-      font-size: 1em;
-      color: #2a1c1c;
-      padding: 13px 16px;
-      transition: border 0.18s, box-shadow 0.13s;
-      width: 100%;
-      font-family: inherit;
-      box-shadow: 0 1px 5px #fd9c3a08;
-      outline: none;
-      resize: vertical;
-    }
-    #rezervacia form input:focus, #rezervacia form textarea:focus {
-      border: 1.7px solid var(--main-red);
-      box-shadow: 0 2px 10px #fd9c3a18;
-    }
-    #rezervacia form textarea {
-      min-height: 60px;
-      max-height: 180px;
-      font-size: 1em;
-    }
-    #rezervacia button[type="submit"] {
-      background: var(--cta-gradient);
-      color:#fff;
-      border:none;
-      border-radius:1.5em;
-      padding:14px 0;
-      font-size:1.18em;
-      font-weight:800;
-      margin-top:16px;
-      cursor:pointer;
-      box-shadow:0 2px 12px #ea2a2a18;
-      transition:background 0.18s, transform 0.14s;
-      width: 100%;
-      letter-spacing: 0.02em;
-    }
-    #rezervacia button[type="submit"]:hover {
-      background: var(--cta-gradient-alt);
-      transform: scale(1.03);
-    }
-    #reservation-success {
-      margin-top: 18px;
-      text-align: center;
-      font-weight: 600;
-      min-height: 22px;
-      font-size: 1em;
-    }
-    @media (max-width: 600px) {
-      #rezervacia {padding: 1.4em 0.3em;}
-      #rezervacia form {padding: 1.1em 0.3em;}
-    }
-    .menu-section { background: linear-gradient(120deg,#fff 80%,#fff6f0 100%);}
-    .menu-section h2 { text-align: center; }
-    .menu-accordion {
-      max-width: 950px;
-      margin: 0 auto 2.5em auto;
-      border-radius: 1.5em;
-      box-shadow: 0 2px 24px #fd9c3a0e;
-      background: #fff;
-      overflow: hidden;
-    }
-    .menu-acc-btn {
-      width: 100%;
-      border: none;
-      outline: none;
-      background: #fff8f1;
-      color: var(--main-red);
-      font-size: 1.19em;
-      font-weight: 900;
-      padding: 1.1em 1.7em;
-      text-align: left;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1.7px solid #fd9c3a22;
-      transition: background 0.13s, color 0.13s;
-      letter-spacing: 0.01em;
-      position: relative;
-      user-select: none;
-    }
-    .menu-acc-btn:last-child { border-bottom: none;}
-    .menu-acc-btn:hover, .menu-acc-btn.active { 
-      background: var(--cta-gradient);
-      color: #fff;
-    }
-    .menu-acc-btn .fa {
-      transition: transform 0.18s;
-      font-size: 1.15em;
-    }
-    .menu-acc-btn.active .fa { transform: rotate(90deg);}
-    .menu-acc-content {
-      display: none;
-      background: #fff;
-      padding: 0 1em 1.2em 1em;
-      animation: fadeMenu 0.25s;
-    }
-    .menu-acc-content.show { display: block;}
-    @keyframes fadeMenu { from { opacity:0; transform:translateY(-10px);} to {opacity:1; transform:none;}}
-    .menu-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.2em;
-      margin-bottom: 0.5em;
-      margin-top: 1.3em;
-      padding: 0;
-      list-style: none;
-    }
-    .menu-card {
-      background: #fff;
-      border-radius: 1.1em;
-      box-shadow: 0 2px 12px #ea2a2a18;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 1.1em 1.3em 1.1em 1.3em;
-      border: 2.5px solid #fff3e6;
-      font-size: 1.07em;
-      min-height: 100px;
-      position: relative;
-      transition: box-shadow 0.16s, border 0.16s, transform 0.13s;
-      cursor: pointer;
-    }
-    .menu-card:active, .menu-card:focus, .menu-card.menu-active {
-      box-shadow: 0 8px 32px #fd9c3a21;
-      border: 2.5px solid var(--main-orange);
-      transform: scale(1.02);
-    }
-    .menu-card-title {
-      color: var(--main-red);
-      font-weight: 800;
-      font-size: 1.13em;
-      margin-bottom: 0.13em;
-      margin-top: 0;
-      letter-spacing: 0.01em;
-    }
-    .menu-card-desc {
-      color: #666;
-      font-size: 0.97em;
-      margin-bottom: 0.4em;
-      line-height: 1.4;
-    }
-    .menu-card-bottom {
-      display: flex;
-      align-items: center;
-      gap: 1em;
-      width: 100%;
-      margin-top: auto;
-      justify-content: flex-end;
-    }
-    .menu-card-add {
-      background: var(--cta-gradient);
-      color: #fff;
-      border: none;
-      border-radius: 1.2em;
-      padding: 0.45em 1.4em;
-      font-size: 1.1em;
-      font-weight: 900;
-      cursor: pointer;
-      box-shadow: 0 1px 8px #ea2a2a18;
-      transition: background 0.13s, transform 0.12s;
-      letter-spacing: 0.02em;
-      margin-left: 0.2em;
-      display: flex;
-      align-items: center;
-      gap: 0.6em;
-    }
-    .menu-card-add span {
-      font-weight: 700;
-      background: rgba(255,255,255,0.17);
-      padding: 0 0.2em;
-      border-radius: 0.6em;
-      font-size: 1.06em;
-      min-width: 3.5em;
-      display: inline-block;
-    }
-    .menu-card-add:active, .menu-card-add:focus { background: var(--cta-gradient-alt); transform: scale(1.08);}
-    @media (max-width: 600px) {
-      .menu-list {grid-template-columns: 1fr;}
-      .menu-card {padding: 1em 1em 1em 1em;}
-      .menu-card-title {font-size: 1em;}
-      .menu-card-add {font-size: 1em;}
-    }
-    .cart {
-      position: fixed;
-      right: 32px;
-      bottom: 32px;
-      background: #fff;
-      border-radius: 1.5em;
-      box-shadow: 0 6px 32px #ea2a2a30, 0 1.5px 10px #fd9c3a26;
-      width: 340px;
-      max-width: 95vw;
-      z-index: 300;
-      padding: 1.4em 1.3em 1.6em 1.3em;
-      display: none;
-      flex-direction: column;
-      gap: 0.8em;
-      border: 2.5px solid #fd9c3a44;
-      animation: fadeInCart 0.3s;
-      transition: opacity 0.18s, transform 0.18s;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(30px) scale(0.97);
-    }
-    .cart.open {
-      display: flex;
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0) scale(1);
-    }
-    @keyframes fadeInCart { from { opacity:0; transform:translateY(30px);} to {opacity:1; transform:none;} }
-    .cart-title {
-      font-size: 1.15em;
-      font-weight: 900;
-      color: var(--main-red);
-      margin-bottom: 0.6em;
-      letter-spacing: 0.01em;
-    }
-    .cart-list {
-      list-style: none;
-      margin: 0 0 1em 0;
-      padding: 0;
-      max-height: 220px;
-      overflow-y: auto;
-    }
-    .cart-list li {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #f1e7e7;
-      padding: 0.4em 0;
-      font-size: 1em;
-      gap: 0.2em;
-    }
-    .cart-list li:last-child { border-bottom: none;}
-    .cart-item-remove, .cart-item-plus, .cart-item-minus {
-      background: none;
-      border: none;
-      color: var(--main-red);
-      font-size: 1.23em;
-      cursor: pointer;
-      margin-left: 0.3em;
-      margin-right: 0.1em;
-      transition: color 0.16s;
-      vertical-align: middle;
-    }
-    .cart-item-plus, .cart-item-minus {font-size:1.13em; margin: 0 0.4em;}
-    .cart-item-remove:hover, .cart-item-plus:hover, .cart-item-minus:hover { color: var(--main-orange);}
-    .cart-item-qtybox {
-      padding: 0.15em 0.45em;
-      font-size: 1em;
-      font-family: inherit;
-      background: #f7f6f3;
-      border-radius: 0.7em;
-      border: 1px solid #eee;
-      min-width: 2.5em;
-      text-align: center;
-      font-weight: 500;
-      margin: 0 0.2em;
-      color: var(--main-red);
-    }
-    .cart-total {
-      font-size: 1.13em;
-      font-weight: 800;
-      color: var(--main-orange);
-      text-align: right;
-      margin-bottom: 0.9em;
-      border-top: 1.5px solid #eee;
-      padding-top: 0.6em;
-    }
-    .cart-close {
-      position: absolute;
-      top: 11px; right: 20px;
-      background: none;
-      border: none;
-      color: #ea2a2a;
-      font-size: 1.9em;
-      cursor: pointer;
-      font-weight: 900;
-      transition: color 0.16s;
-      z-index: 10;
-      line-height: 1;
-    }
-    .cart-close:hover { color: var(--main-orange);}
-    .cart-toggle-btn {
-      position: fixed;
-      right: 28px; bottom: 28px;
-      width: 60px; height: 60px;
-      border-radius: 50%;
-      background: var(--cta-gradient);
-      color: #fff;
-      border: none;
-      box-shadow: 0 4px 16px #ea2a2a26;
-      font-size: 2em;
-      cursor: pointer;
-      z-index: 350;
-      display: flex; align-items: center; justify-content: center;
-      transition: background 0.14s, transform 0.12s;
-      outline: none;
-    }
-    .cart-toggle-btn:active, .cart-toggle-btn:focus { background: var(--cta-gradient-alt);}
-    .cart-badge {
-      background: var(--main-red);
-      color: #fff;
-      border-radius: 50%;
-      font-size: 0.87em;
-      padding: 0 8px;
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-weight: 700;
-      box-shadow: 0 1px 4px #ea2a2a24;
-      pointer-events: none;
-      min-width: 18px;
-      text-align: center;
-    }
-    @media (max-width: 700px) {
-      .cart, .cart-toggle-btn { right: 10px; bottom: 10px;}
-      .cart { padding: 0.7em 0.6em 1em 0.8em; width: 95vw;}
-    }
-    /* Kontakt moderný blok s mapou */
-    #kontakt {
-      background: linear-gradient(120deg,#fff 80%,#fff6f0 100%);
-      border-radius: var(--radius);
-      margin: 3em auto 2em auto;
-      max-width: 1000px;
-      box-shadow: var(--main-shadow);
-      padding: 2.5em 1.5em 2em 1.5em;
-    }
-    #kontakt h2 {text-align: center;}
-    .kontakt-flex {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2em;
-      align-items: flex-start;
-      justify-content: center;
-      max-width:900px;
-      margin:0 auto;
-    }
-    .kontakt-box {
-      background:#fff;
-      border-radius:1.2em;
-      box-shadow:0 2px 12px #fd9c3a18;
-      padding:2em 2em 1.3em 2em;
-      flex:1 1 270px;
-      min-width:250px;
-      max-width:350px;
-      display:flex;
-      flex-direction:column;
-      gap:0.7em;
-    }
-    .kontakt-box b, .kontakt-box .fa {color:#ea2a2a;}
-    .kontakt-box ul {margin:0 0 0.5em 1em;padding:0;list-style:disc;font-size:1em;}
-    .kontakt-social {margin-top:0.5em;}
-    .kontakt-social a {margin-right:0.5em;}
-    .kontakt-map-wrap {
-      flex:1 1 340px;
-      min-width:270px;
-      max-width:450px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .kontakt-map-inner {
-      width:100%;
-      max-width:400px;
-      aspect-ratio:1/1;
-      min-height:260px;
-      background:#fff;
-      border-radius:1.2em;
-      box-shadow:0 2px 12px #fd9c3a18;
-      overflow:hidden;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .kontakt-map-inner iframe {
-      width:100%;
-      height:100%;
-      min-height:260px;
-      min-width:220px;
-      border:0;
-      border-radius:1.2em;
-    }
-    @media (max-width: 900px) {
-      .kontakt-flex {flex-direction:column;}
-      .kontakt-map-wrap,.kontakt-box {max-width:100%;}
-      .kontakt-map-inner {max-width:100%;}
-    }
-    footer {
-      background: var(--main-red);
-      color: #fff;
-      padding: 2em 1em 1em 1em;
-      margin-top: 2em;
-      box-shadow: 0 -2px 6px 0 #fd9c3a12;
-      font-size: 0.98em;
-    }
-    .footer-content {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.3em;
-      align-items: center;
-      justify-content: space-between;
-      flex-direction: row;
-    }
-    .footer-content a { color: #fff; margin-right: 0.8em; }
-    .footer-content a:hover { color: var(--main-orange); }
-    .footer-copy { flex: 1 1 100%; margin-top: 1em; text-align: center; color: #f7e8e8; }
-    @media (max-width: 700px) {
-      .footer-content { flex-direction: column; gap: 0.8em; align-items: center;}
+      .hamburger {
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 13px;
+      }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background: #fff;
+        border-radius: 1em;
+        position: absolute;
+        top: 50px;
+        right: 10px;
+        box-shadow: 0 2px 24px #ea2a2a20;
+        z-index: 200;
+      }
+      nav ul.show {
+        display: flex;
+      }
     }
   </style>
-  <body>
-    <header>
-      <div class="nav-container">
-        <div class="logo"><i class="fa-solid fa-bowling-ball"></i>Bowling Čaňa &amp; Pizza</div>
-        <div class="header-contact">
-          <span><i class="fas fa-clock"></i> Po–Št: 15–22h, Pi: 15–23h, So: 12–23h, Ne: 15–22h</span>
-          <span><i class="fas fa-phone-alt"></i> <a href="tel:+421915666066" style="color:#fffbe6;text-decoration:none;font-weight:700;">0915 666 066</a></span>
-          <a href="https://facebook.com/bowlingcana" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-          <a href="https://instagram.com/bowlingcana" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        </div>
-        <nav>
-          <button class="hamburger" aria-label="Zobraziť menu"><i class="fas fa-bars"></i></button>
-          <ul>
-            <li><a href="#onas">O nás</a></li>
-            <li><a href="#sluzby">Ponuka</a></li>
-            <li><a href="#menu">Menu</a></li>
-            <li><a href="#rezervacia">Objednávka</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
-          </ul>
-        </nav>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="logo">
+        <i class="fa-solid fa-bowling-ball"></i>
+        Bowling Čaňa & Pizza
       </div>
-    </header>
-    <section class="hero" id="uvod">
-      <div class="hero-content">
-        <div class="hero-title"><i class="fa-solid fa-bowling-ball"></i>Bowling & pizza pre celú rodinu v Čani</div>
-        <div class="hero-desc">
-          Moderné bowlingové dráhy, výborná pizza a priateľská atmosféra. Oslavy, turnaje, rodinné večery aj rozvoz pizze v Čani a okolí. Príďte si užiť zážitok na celý večer!
-        </div>
-        <div class="hero-cta">
-          <a href="#rezervacia" class="btn-cta">Rezervuj teraz</a>
-          <a href="tel:+421915666066" class="btn-cta alt"><i class="fa fa-phone"></i> Zavolaj nám</a>
-        </div>
+      <div class="header-contact">
+        <span><i class="fas fa-clock"></i> Po–Št: 15–22h, Pi: 15–23h, So: 12–23h, Ne: 15–22h</span>
+        <span><i class="fas fa-phone-alt"></i> <a href="tel:+421915666066">0915 666 066</a></span>
+        <a href="https://facebook.com/bowlingcana" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com/bowlingcana" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       </div>
-    </section>
-    <section class="services" id="sluzby">
-      <h2>Naša ponuka</h2>
-      <div class="service-items">
-        <div class="service-item" tabindex="0"><span class="icon" aria-label="Pizzeria">🍕</span><h3>Pizzeria</h3><p>Chrumkavá pizza z kvalitných surovín – vždy čerstvá a s úsmevom.</p></div>
-        <div class="service-item" tabindex="0"><span class="icon" aria-label="Bowling">🎳</span><h3>Bowling</h3><p>2 moderné bowlingové dráhy, svetlá, hudba a súťaživá atmosféra pre každého.</p></div>
-        <div class="service-item" tabindex="0"><span class="icon" aria-label="Bar">🍺</span><h3>Bar & nápoje</h3><p>Pivo, víno, nealko nápoje a fľaškový alkohol v našom bare.</p></div>
-        <div class="service-item" tabindex="0"><span class="icon" aria-label="Oslavy">🎉</span><h3>Oslavy & akcie</h3><p>Detské oslavy, firemné večierky, turnaje – zážitok na mieru podľa tvojich predstáv.</p></div>
-      </div>
-    </section>
-    <section id="menu" class="menu-section">
-      <h2>Menu</h2>
-      <div class="menu-accordion" id="menu-accordion">
-        <button class="menu-acc-btn active" data-menu="pizza">Pizza <i class="fa fa-chevron-right"></i></button>
-        <div class="menu-acc-content show" id="menu-list-pizza"></div>
-        <button class="menu-acc-btn" data-menu="napoje">Nápoje <i class="fa fa-chevron-right"></i></button>
-        <div class="menu-acc-content" id="menu-list-napoje"></div>
-        <button class="menu-acc-btn" data-menu="pivo">Pivo <i class="fa fa-chevron-right"></i></button>
-        <div class="menu-acc-content" id="menu-list-pivo"></div>
-        <button class="menu-acc-btn" data-menu="vino">Víno <i class="fa fa-chevron-right"></i></button>
-        <div class="menu-acc-content" id="menu-list-vino"></div>
-        <button class="menu-acc-btn" data-menu="pochutiny">Pochutiny <i class="fa fa-chevron-right"></i></button>
-        <div class="menu-acc-content" id="menu-list-pochutiny"></div>
-        <button class="menu-acc-btn" data-menu="alkohol">Alkohol <i class="fa fa-chevron-right"></i></button>
-        <div class="menu-acc-content" id="menu-list-alkohol"></div>
-      </div>
-      <div class="cta-group">
-        <a href="#rezervacia" class="btn-cta">Rezervuj teraz</a>
-        <a href="tel:+421915666066" class="btn-cta alt"><i class="fa fa-phone"></i> Zavolaj nám</a>
-      </div>
-    </section>
-    <button class="cart-toggle-btn" id="cart-toggle-btn" aria-label="Zobraziť košík">
-      <i class="fas fa-shopping-cart"></i>
-      <span class="cart-badge" id="cart-badge">0</span>
-    </button>
-    <div class="cart" id="cart">
-      <button class="cart-close" id="cart-close" aria-label="Zavrieť košík">&times;</button>
-      <div class="cart-title">Váš košík</div>
-      <ul class="cart-list" id="cart-list"></ul>
-      <div class="cart-total" id="cart-total"></div>
+      <nav>
+        <button class="hamburger" aria-label="Zobraziť menu"><i class="fas fa-bars"></i></button>
+        <ul>
+          <li><a href="#onas">O nás</a></li>
+          <li><a href="#sluzby">Ponuka</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#rezervacia">Objednávka</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
     </div>
-    <section id="rezervacia">
-      <h2>Rezervácia / Objednávka</h2>
-      <div class="rez-desc">
-        <b><i class="fa fa-calendar-check"></i> Rezervujte si bowling, stôl či pizzu online jednoducho a rýchlo!</b><br>
-        Vyplňte formulár nižšie. Ozveme sa vám späť na potvrdenie rezervácie. Pre rýchle objednávky volajte <a href="tel:+421915666066"><b>0915 666 066</b></a>.
-      </div>
-      <form id="reservationForm" autocomplete="off">
-        <div class="rez-form-row">
-          <div>
-            <label for="name"><i class="fa fa-user"></i> Meno a priezvisko*</label>
-            <input type="text" id="name" name="name" placeholder="Vaše meno" required />
-          </div>
-          <div>
-            <label for="phone"><i class="fa fa-phone"></i> Telefón*</label>
-            <input type="tel" id="phone" name="phone" placeholder="0901 234 567" required pattern="^(?:\+?421|0)\s?\d{3}\s?\d{3}\s?\d{3}$" />
-          </div>
-        </div>
-        <label for="email"><i class="fa fa-envelope"></i> Email (voliteľné)</label>
-        <input type="email" id="email" name="email" placeholder="vas@email.sk" />
-        <div class="rez-form-row">
-          <div>
-            <label for="date"><i class="fa fa-calendar"></i> Dátum*</label>
-            <input type="date" id="date" name="date" required />
-          </div>
-          <div>
-            <label for="time"><i class="fa fa-clock"></i> Čas*</label>
-            <input type="time" id="time" name="time" required />
-          </div>
-        </div>
-        <label for="guests"><i class="fa fa-users"></i> Počet osôb*</label>
-        <input type="number" id="guests" name="guests" placeholder="Počet osôb" required min="1" />
-        <label for="note"><i class="fa fa-comment-dots"></i> Poznámka (voliteľné)</label>
-        <textarea id="note" name="note" placeholder="Napr. objednávka pizze, špeciálne požiadavky..."></textarea>
-        <button type="submit"><i class="fa fa-paper-plane"></i> Odoslať rezerváciu</button>
-        <div id="reservation-success"></div>
-      </form>
-    </section>
-    <section id="kontakt">
-      <h2>Kontakt</h2>
-      <div class="kontakt-flex">
-        <div class="kontakt-box">
-          <div style="font-size:1.13em;color:#ea2a2a;font-weight:700;display:flex;align-items:center;gap:0.5em;"><i class="fa fa-map-marker-alt"></i> Adresa</div>
-          <div>Osloboditeľov 18, 044 14 Čaňa</div>
-          <div style="font-size:1.13em;color:#ea2a2a;font-weight:700;display:flex;align-items:center;gap:0.5em;"><i class="fa fa-phone"></i> Telefón</div>
-          <div><a href="tel:+421915666066" style="color:#ea2a2a;font-weight:700;">0915 666 066</a></div>
-          <div style="font-size:1.13em;color:#ea2a2a;font-weight:700;display:flex;align-items:center;gap:0.5em;"><i class="fa fa-envelope"></i> Email</div>
-          <div><a href="mailto:info@bowlingcana.sk" style="color:#fd9c3a;font-weight:700;">info@bowlingcana.sk</a></div>
-          <div style="font-size:1.13em;color:#ea2a2a;font-weight:700;display:flex;align-items:center;gap:0.5em;"><i class="fa fa-clock"></i> Otváracie hodiny</div>
-          <ul>
-            <li>Pondelok – Štvrtok: 15:00 – 22:00</li>
-            <li>Piatok: 15:00 – 23:00</li>
-            <li>Sobota: 12:00 – 23:00</li>
-            <li>Nedeľa: 15:00 – 22:00</li>
-          </ul>
-          <div class="kontakt-social">
-            <a href="https://facebook.com/bowlingcana" target="_blank" aria-label="Facebook" style="color:#3b5998;font-size:1.7em;margin-right:0.5em;"><i class="fab fa-facebook"></i></a>
-            <a href="https://instagram.com/bowlingcana" target="_blank" aria-label="Instagram" style="color:#ea2a2a;font-size:1.7em;"><i class="fab fa-instagram"></i></a>
-          </div>
-        </div>
-        <div class="kontakt-map-wrap">
-          <div class="kontakt-map-inner">
-            <iframe
-              src="https://www.openstreetmap.org/export/embed.html?bbox=21.2715%2C48.6235%2C21.2815%2C48.6295&amp;layer=mapnik&amp;marker=48.6265,21.2765"
-              allowfullscreen
-              loading="lazy"
-              title="Mapa Bowling Čaňa"></iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-    <footer>
-      <div class="footer-content">
-        <div>
-          <a href="https://facebook.com/bowlingcana" target="_blank" aria-label="Facebook" style="margin-right:0.6em;">
-            <i class="fab fa-facebook fa-lg"></i>
-          </a>
-          <a href="https://instagram.com/bowlingcana" target="_blank" aria-label="Instagram">
-            <i class="fab fa-instagram fa-lg"></i>
-          </a>
-        </div>
-        <div>
-          <a href="#onas">O nás</a>
-          <a href="#sluzby">Ponuka</a>
-          <a href="#menu">Menu</a>
-          <a href="#rezervacia">Objednávka</a>
-          <a href="#kontakt">Kontakt</a>
-        </div>
-        <div class="footer-copy">
-          &copy; 2025 Bowling Čaňa &bull; Všetky práva vyhradené.
-        </div>
-      </div>
-    </footer>
-    <script>
-      // Hamburger, scroll, active menu
-      const hamburger = document.querySelector('.hamburger');
-      const navMenu = document.querySelector('nav ul');
-      hamburger.addEventListener('click', () => navMenu.classList.toggle('show'));
-      const navLinks = document.querySelectorAll('nav ul li a');
-      window.addEventListener('scroll', () => {
-        let fromTop = window.scrollY + 100;
-        navLinks.forEach(link => {
-          let section = document.querySelector(link.getAttribute('href'));
-          if (section && section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
-            navLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
-          }
-        });
-      });
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            e.preventDefault();
-            target.scrollIntoView({behavior: 'smooth', block: 'start'});
-          }
-        });
-      });
+  </header>
 
-      // MENU accordion sekcie
-      document.querySelectorAll('.menu-acc-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-          document.querySelectorAll('.menu-acc-btn').forEach(b => b.classList.remove('active'));
-          document.querySelectorAll('.menu-acc-content').forEach(c => c.classList.remove('show'));
-          btn.classList.add('active');
-          document.getElementById('menu-list-' + btn.dataset.menu).classList.add('show');
-        });
-      });
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('nav ul');
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
 
-      // MENU DATA
-      const menuData = {
-        pizza: [
-          { name: "Gazdovská", desc: "paradajková omáčka, syr, slanina, cibuľa, šampiňóny, saláma, klobása", price: 7.10 },
-          { name: "Študentská", desc: "paradajková omáčka, syr, šunka, kukurica", price: 6.50 },
-          { name: "Capri", desc: "paradajková omáčka, syr, šunka, šampiňóny, kukurica", price: 6.80 },
-          { name: "Pikantná", desc: "paradajková omáčka, syr, saláma, feferóny, cibuľa, niva", price: 6.80 },
-          { name: "Čaňanská", desc: "paradajková omáčka, syr, šunka, slanina, vajce, kukurica", price: 7.10 },
-          { name: "Quatro stagione", desc: "paradajková omáčka, syr, šunka, šampiňóny, olivy, kukurica", price: 7.10 }
-        ],
-        napoje: [
-          { name: "Pepsi 1,5l", desc: "(plus záloha za obal)", price: 2.00 },
-          { name: "Coca-Cola Zero 1,5l", desc: "(plus záloha za obal)", price: 2.00 },
-          { name: "Energy Drink Pilot 0,25l", desc: "(plus záloha za obal)", price: 1.30 },
-          { name: "Kofola originál 1,5 l - čapovaná", desc: "(plus záloha za obal)", price: 4.50 },
-          { name: "Pepsi-Cola plechovka 0,33l", desc: "(plus záloha za obal)", price: 1.30 },
-          { name: "Džús krabičkový 0,25l", desc: "", price: 0.80 },
-          { name: "Red Bull 0,25l", desc: "(plus záloha za obal)", price: 2.15 },
-          { name: "Minerálka 0,5l", desc: "(plus záloha za obal)", price: 1.15 }
-        ],
-        pivo: [
-          { name: "Staropramen 0,5l plech", desc: "(plus záloha za obal)", price: 1.25 },
-          { name: "Pilsner Urquell 0,5 l - fľašový", desc: "(plus záloha za obal)", price: 1.65 },
-          { name: "Staropramen 10° čapovaný 1,5l", desc: "(plus záloha za obal)", price: 4.05 },
-          { name: "Steiger radler (tmavý, svetlý)", desc: "(plus záloha za obal)", price: 1.25 },
-          { name: "Staropramen 12° nefilter čapovaný 1,5l", desc: "(plus záloha za obal)", price: 4.65 },
-          { name: "Pilsner Urquell čapovaný 1,5l", desc: "(plus záloha za obal)", price: 5.55 },
-          { name: "Pilsner Urquell 0,5l plech", desc: "(plus záloha za obal)", price: 1.95 }
-        ],
-        vino: [
-          { name: "Matyšák Frankovka Modrá - červené 1,0l", desc: "", price: 7.00 },
-          { name: "Matyšák Rizling Vlašský - biele 1,0l", desc: "", price: 7.00 },
-          { name: "Hubert DeLuxe šampanské 0,75l", desc: "", price: 8.00 },
-          { name: "Movino - biele 0,75l", desc: "", price: 8.00 },
-          { name: "Movino - červené 0,75l", desc: "", price: 8.00 }
-        ],
-        pochutiny: [
-          { name: "Horalka 45g", desc: "", price: 0.70 },
-          { name: "Mila 45g", desc: "", price: 0.80 },
-          { name: "Lay´s chips 0,65g", desc: "", price: 1.40 },
-          { name: "Mentos 38g", desc: "", price: 0.80 },
-          { name: "Tyčinky DRU 45g", desc: "", price: 0.60 },
-          { name: "Arašidy 100g", desc: "", price: 0.80 }
-        ],
-        alkohol: [
-          { name: "Vodka Jemná 0,5l", desc: "", price: 9.00 },
-          { name: "Captain Morgan Sp. 0,7l", desc: "", price: 18.00 },
-          { name: "Vodka Nicolaus 0,7l", desc: "", price: 13.00 },
-          { name: "Captain Morgan Sp. 1l", desc: "", price: 22.00 },
-          { name: "Metaxa 5* 0,7l", desc: "", price: 17.00 },
-          { name: "R tuzemský 0,5l", desc: "", price: 9.00 }
-        ]
-      };
-      function renderMenu(sectionId, data) {
-        const div = document.getElementById('menu-list-' + sectionId);
-        div.innerHTML = '<ul class="menu-list"></ul>';
-        const ul = div.querySelector('ul');
-        data.forEach(item => {
-          const li = document.createElement('li');
-          li.className = 'menu-card';
-          li.setAttribute('data-name', item.name);
-          li.setAttribute('data-price', item.price.toFixed(2));
-          li.innerHTML = `
-            <div class="menu-card-title">${item.name}</div>
-            <div class="menu-card-desc">${item.desc || ''}</div>
-            <div class="menu-card-bottom">
-              <button class="menu-card-add">Pridať <span>${item.price.toFixed(2)}&nbsp;€</span></button>
-            </div>
-          `;
-          ul.appendChild(li);
-        });
-      }
-      renderMenu('pizza', menuData.pizza);
-      renderMenu('napoje', menuData.napoje);
-      renderMenu('pivo', menuData.pivo);
-      renderMenu('vino', menuData.vino);
-      renderMenu('pochutiny', menuData.pochutiny);
-      renderMenu('alkohol', menuData.alkohol);
-
-      // Košík
-      let cart = [];
-      const cartBtn = document.getElementById('cart-toggle-btn');
-      const cartBadge = document.getElementById('cart-badge');
-      const cartDiv = document.getElementById('cart');
-      const cartList = document.getElementById('cart-list');
-      const cartTotal = document.getElementById('cart-total');
-      const cartClose = document.getElementById('cart-close');
-      function updateCartBadge() {
-        let sum = cart.reduce((acc, item) => acc + item.qty, 0);
-        cartBadge.textContent = sum;
-        cartBtn.setAttribute('aria-label', `Zobraziť košík (${sum})`);
-      }
-      function updateCart() {
-        cartList.innerHTML = "";
-        if(cart.length === 0) {
-          cartList.innerHTML = "<li style='color:#888;font-size:0.97em'>Košík je prázdny.</li>";
-          cartTotal.textContent = "";
-        } else {
-          cart.forEach((item, idx) => {
-            const li = document.createElement('li');
-            li.innerHTML = `
-              <span>
-                <button class="cart-item-minus" title="Menej" aria-label="Menej" data-idx="${idx}"><i class="fas fa-minus"></i></button>
-                <span class="cart-item-qtybox">${item.qty}</span>
-                ${item.name}
-                <button class="cart-item-plus" title="Viac" aria-label="Viac" data-idx="${idx}"><i class="fas fa-plus"></i></button>
-              </span>
-              <span>
-                ${(item.price * item.qty).toFixed(2)} €
-                <button class="cart-item-remove" title="Odstrániť" aria-label="Odstrániť položku" data-idx="${idx}"><i class="fas fa-trash"></i></button>
-              </span>`;
-            cartList.appendChild(li);
-          });
-          cartTotal.textContent = `Celkom: ${cart.reduce((acc,i)=>acc+i.price*i.qty,0).toFixed(2)} €`;
-        }
-        updateCartBadge();
-      }
-      document.querySelectorAll('.menu-list').forEach(list => {
-        list.addEventListener('click', function(e) {
-          const btn = e.target.closest('.menu-card-add');
-          if(btn) {
-            const card = btn.closest('.menu-card');
-            const name = card.getAttribute('data-name');
-            const price = parseFloat(card.getAttribute('data-price'));
-            const found = cart.find(it => it.name === name);
-            if(found) found.qty += 1;
-            else cart.push({name, price, qty: 1});
-            updateCart();
-            cartBtn.classList.add('active');
-            setTimeout(()=>cartBtn.classList.remove('active'),180);
-            if(window.innerWidth < 700) cartDiv.classList.add('open');
-          }
-        });
-      });
-      cartBtn.onclick = () => { 
-        cartDiv.classList.toggle('open'); 
-        if(cartDiv.classList.contains('open')) {
-          setTimeout(()=>cartClose.focus(),150);
-        }
-      }
-      cartClose.onclick = () => { cartDiv.classList.remove('open'); }
-      cartList.addEventListener('click', function(e) {
-        if (e.target.closest('.cart-item-remove')) {
-          const idx = +e.target.closest('.cart-item-remove').getAttribute('data-idx');
-          cart.splice(idx,1);
-          updateCart();
-        }
-        if (e.target.closest('.cart-item-plus')) {
-          const idx = +e.target.closest('.cart-item-plus').getAttribute('data-idx');
-          cart[idx].qty += 1;
-          updateCart();
-        }
-        if (e.target.closest('.cart-item-minus')) {
-          const idx = +e.target.closest('.cart-item-minus').getAttribute('data-idx');
-          if(cart[idx].qty > 1) cart[idx].qty -= 1;
-          else cart.splice(idx,1);
-          updateCart();
+    // Highlight active menu link on scroll
+    const navLinks = document.querySelectorAll('nav ul li a');
+    window.addEventListener('scroll', () => {
+      let fromTop = window.scrollY + 100;
+      navLinks.forEach(link => {
+        let section = document.querySelector(link.getAttribute('href'));
+        if (section && section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
         }
       });
-      updateCart();
-
-      // Rezervačný formulár - potvrdenie po odoslaní
-      const form = document.getElementById('reservationForm');
-      const successDiv = document.getElementById('reservation-success');
-      if(form) {
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          if (!form.checkValidity()) {
-            form.reportValidity();
-            return;
-          }
-          successDiv.style.color = '#ea2a2a';
-          successDiv.innerHTML = "Odosielam rezerváciu...";
-          setTimeout(() => {
-            successDiv.style.color = 'green';
-            successDiv.innerHTML = 'Rezervácia bola úspešne odoslaná!';
-            form.reset();
-          }, 1100);
-        });
-      }
-    </script>
-  </body>
+    });
+  </script>
+</body>
 </html>
