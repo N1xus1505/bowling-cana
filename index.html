@@ -9,10 +9,6 @@
   <meta name="author" content="Bowling Čaňa">
   <link rel="icon" href="https://cdn.pixabay.com/photo/2013/07/13/12/37/bowling-146862_1280.png">
 
-  <!-- Importy fontov a ikon -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <!-- CSS -->
   <style>
     :root {
@@ -24,7 +20,6 @@
       --radius: 2em;
       --font-main: 'Montserrat', Arial, sans-serif;
       --cta-gradient: linear-gradient(90deg,#fd9c3a 10%, #ea2a2a 100%);
-      --cta-gradient-alt: linear-gradient(90deg,#ea2a2a 0%,#fd9c3a 100%);
     }
 
     body {
@@ -44,20 +39,8 @@
       top: 0;
       z-index: 100;
       box-shadow: var(--main-shadow);
-      font-family: 'Montserrat', sans-serif;
-      animation: slideDown 0.8s ease-out; /* Animácia */
-      padding: 0.5em 0; /* Zmenšená veľkosť */
-    }
-
-    @keyframes slideDown {
-      from {
-        transform: translateY(-100%);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
+      font-family: var(--font-main);
+      padding: 0.5em 0;
     }
 
     .nav-container {
@@ -66,50 +49,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.6em 1em; /* Zmenšený padding */
+      padding: 0.6em 1em;
       flex-wrap: wrap;
-    }
-
-    .logo {
-      font-size: 1.5em;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 0.4em;
-    }
-
-    .logo .fa-bowling-ball {
-      font-size: 1.2em;
-      color: #ffd600;
-    }
-
-    .header-contact {
-      font-size: 0.9em;
-      display: flex;
-      gap: 1em;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .header-contact span, 
-    .header-contact a {
-      color: #fffbe6;
-      font-size: 0.9em;
-      font-weight: 500;
-      text-decoration: none;
-      transition: color .2s;
-    }
-
-    .header-contact .fa-facebook, .header-contact .fa-instagram {
-      font-size: 1.2em;
-      color: #fffbe6;
-      transition: color 0.16s;
-    }
-
-    .header-contact .fa-facebook:hover, .header-contact .fa-instagram:hover {
-      color: #ffd600;
     }
 
     nav ul {
@@ -170,53 +111,84 @@
         display: flex;
       }
     }
+
+    section {
+      max-width: 1200px;
+      margin: 2em auto;
+      padding: 1em;
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--main-shadow);
+    }
+
+    h2 {
+      color: var(--main-red);
+      text-align: center;
+      margin-bottom: 1em;
+    }
+
+    h3 {
+      color: var(--main-orange);
+      margin-bottom: 0.5em;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin-bottom: 0.5em;
+      line-height: 1.5;
+    }
+
+    ul li b {
+      color: var(--main-red);
+    }
+
+    ul li strong {
+      color: #000;
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="nav-container">
-      <div class="logo">
-        <i class="fa-solid fa-bowling-ball"></i>
-        Bowling Čaňa & Pizza
-      </div>
-      <div class="header-contact">
-        <span><i class="fas fa-clock"></i> Po–Št: 15–22h, Pi: 15–23h, So: 12–23h, Ne: 15–22h</span>
-        <span><i class="fas fa-phone-alt"></i> <a href="tel:+421915666066">0915 666 066</a></span>
-        <a href="https://facebook.com/bowlingcana" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-        <a href="https://instagram.com/bowlingcana" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      </div>
       <nav>
         <button class="hamburger" aria-label="Zobraziť menu"><i class="fas fa-bars"></i></button>
         <ul>
-          <li><a href="#onas">O nás</a></li>
-          <li><a href="#sluzby">Ponuka</a></li>
           <li><a href="#menu">Menu</a></li>
-          <li><a href="#rezervacia">Objednávka</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
+  <section id="menu">
+    <h2>Menu</h2>
+
+    <div class="menu-section">
+      <h3>Pizze</h3>
+      <ul>
+        <li><b>Hawai</b>: paradajková omáčka, syr, šunka, ananás – <strong>6.60 €</strong></li>
+        <li><b>Quatro formaggi</b>: paradajková omáčka, syr, štyri druhy syra – <strong>6.80 €</strong></li>
+        <li><b>Kuracia</b>: paradajková omáčka, syr, kuracie mäso, kukurica, šampiňóny – <strong>6.80 €</strong></li>
+      </ul>
+    </div>
+
+    <div class="menu-section">
+      <h3>Snacky</h3>
+      <ul>
+        <li><b>Horalka 45g</b> – <strong>0.70 €</strong></li>
+        <li><b>Mila 45g</b> – <strong>0.80 €</strong></li>
+      </ul>
+    </div>
+  </section>
+
   <script>
-    // Hamburger menu toggle
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('nav ul');
     hamburger.addEventListener('click', () => {
       navMenu.classList.toggle('show');
-    });
-
-    // Highlight active menu link on scroll
-    const navLinks = document.querySelectorAll('nav ul li a');
-    window.addEventListener('scroll', () => {
-      let fromTop = window.scrollY + 100;
-      navLinks.forEach(link => {
-        let section = document.querySelector(link.getAttribute('href'));
-        if (section && section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
-          navLinks.forEach(l => l.classList.remove('active'));
-          link.classList.add('active');
-        }
-      });
     });
   </script>
 </body>
