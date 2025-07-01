@@ -1153,7 +1153,8 @@
 <script src="https://js.stripe.com/v3/"></script>
 <script>
   const stripe = Stripe('pk_test_51ONyCFGrrc6Ym4pmrVf3Z1vP8p4nQQ0N9bklbXqXwGWcKq6F0Z2H1bA7lVfLWuV5wYyA3x1KQFmk0qPZo8ZQzlD0G00KCVcD0Ih');
-  document.getElementById('checkout-button').addEventListener('click', function () {
+  document.getElementById('checkout-button').addEventListener('click', function () {alert('PLATBA kliknuta!');
+console.log('cart:', cart);
     fetch('/create-checkout-session', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
