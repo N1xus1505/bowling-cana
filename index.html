@@ -1158,7 +1158,8 @@
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      body: JSON.stringify({ cart }) // ← toto posiela celý košík!
     })
     .then(response => response.json())
     .then(session => {
