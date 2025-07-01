@@ -855,15 +855,36 @@
         </div>
         <div>
         <label for="time"><i class="fa fa-clock"></i> Čas* </label>
-<input
-  type="text"
-  id="time"
-  name="time"
-  required
-  placeholder="napr. 18:30"
-  pattern="^(1[2-9]|2[0-2]):[0-5]\d$|^23:00$"
-  title="Zadajte čas v tvare HH:MM od 12:00 do 23:00 (napr. 12:00, 18:30, 22:45, 23:00)"
-/>
+<label for="time"><i class="fa fa-clock"></i> Čas* </label>
+<div style="position:relative;display:flex;align-items:center;">
+  <input
+    type="text"
+    id="time"
+    name="time"
+    required
+    placeholder="napr. 18:30"
+    pattern="^(1[2-9]|2[0-3]):[0-5]\d$"
+    title="Zadajte čas v tvare HH:MM od 12:00 do 23:59 (napr. 12:00, 18:30, 23:45)"
+    style="padding-right:2.2em;"
+  />
+  <span
+    onclick="document.getElementById('time-picker').showPicker && document.getElementById('time-picker').showPicker();"
+    style="position:absolute;right:0.7em;cursor:pointer;color:#ea2a2a;font-size:1.2em;"
+    title="Vybrať čas"
+  >
+    <i class="fa-regular fa-clock"></i>
+  </span>
+  <input
+    type="time"
+    id="time-picker"
+    style="position:absolute;opacity:0;width:0;height:0;pointer-events:none;"
+    min="12:00"
+    max="23:59"
+    onchange="document.getElementById('time').value=this.value;"
+    tabindex="-1"
+    aria-hidden="true"
+  />
+</div>
         </div>
       </div>
       <label for="guests"><i class="fa fa-users"></i> Počet osôb*</label>
