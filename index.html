@@ -1161,8 +1161,9 @@
 })
     .then(response => response.json())
     .then(session => {
-      return stripe.redirectToCheckout({ sessionId: session.id });
-    })
+  console.log('SESSION:', session);
+  return stripe.redirectToCheckout({ sessionId: session.id });
+})
     .then(result => {
       if (result && result.error) {
         alert(result.error.message);
