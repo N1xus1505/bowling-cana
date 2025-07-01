@@ -854,15 +854,15 @@
           <input type="date" id="date" name="date" required />
         </div>
         <div>
-        <label for="time"><i class= "fa fa-clock"> </i> Čas* </label>
-        <input
+        <label for="time"><i class="fa fa-clock"></i> Čas* </label>
+<input
   type="text"
   id="time"
   name="time"
   required
   placeholder="napr. 18:30"
-  pattern="^([01]\d|2[0-3]):[0-5]\d$"
-  title="Zadajte čas v tvare HH:MM (napr. 18:30)"
+  pattern="^(1[2-9]|2[0-2]):[0-5]\d$|^23:00$"
+  title="Zadajte čas v tvare HH:MM od 12:00 do 23:00 (napr. 12:00, 18:30, 22:45, 23:00)"
 />
         </div>
       </div>
