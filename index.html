@@ -855,7 +855,15 @@
         </div>
         <div>
         <label for="time"><i class= "fa fa-clock"> </i> Čas* </label>
-        <input type= "time" id= "time" name="time" required />
+        <input
+  type="text"
+  id="time"
+  name="time"
+  required
+  placeholder="napr. 18:30"
+  pattern="^([01]\d|2[0-3]):[0-5]\d$"
+  title="Zadajte čas v tvare HH:MM (napr. 18:30)"
+/>
         </div>
       </div>
       <label for="guests"><i class="fa fa-users"></i> Počet osôb*</label>
