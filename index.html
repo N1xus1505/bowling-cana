@@ -1148,6 +1148,34 @@
         "<span style='color:green;font-weight:bold;'>Rezervácia bola odoslaná. Ozveme sa vám späť na potvrdenie.</span>";
       this.reset();
     });
+    <!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <title>Paywall Stripe Example</title>
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+  <h1>Prémiový obsah</h1>
+  <button id="payButton">Zaplať a odomkni</button>
+
+  <script>
+    const stripe = Stripe('pk_test_51ONyCFGrrc6Ym4pms5d7lQKQEgWKsihBIWCxn2K6LgWixah9KZ2yCX7HBqgfKEw75JHfCdfp3P5onTIbPFT7exTY00KGw7lf3S');
+
+    document.getElementById('payButton').addEventListener('click', async () => {
+      const response = await fetch('/create-checkout-session', { method: 'POST' });
+      const session = await response.json();
+
+      const { error } = await stripe.redirectToCheckout({
+        sessionId: session.id,
+      });
+      if (error) {
+        alert(error.message);
+      }
+    });
+  </script>
+</body>
+</html>
   </script>
 </body>
 </html>
